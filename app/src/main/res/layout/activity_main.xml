@@ -74,7 +74,7 @@
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="30sp" />
+                    android:layout_height="20sp" />
 
                 <TextView
                     android:id="@+id/textView"
@@ -87,7 +87,7 @@
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="30sp" />
+                    android:layout_height="10sp" />
 
                 <Button
                     android:id="@+id/buttonTimer"
@@ -98,16 +98,17 @@
                     android:text="Solve timer" />
 
                 <Button
-                    android:id="@+id/buttonTimer2"
+                    android:id="@+id/buttonRecords"
                     android:layout_width="match_parent"
                     android:layout_height="80sp"
                     android:backgroundTint="@android:color/holo_red_dark"
                     android:onClick="loadSelectedPage"
-                    android:text="Records" />
+                    android:text="Records"
+                    android:textColor="@color/white" />
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="30sp" />
+                    android:layout_height="10sp" />
 
                 <TextView
                     android:id="@+id/textView2"
@@ -120,10 +121,10 @@
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="30sp" />
+                    android:layout_height="10sp" />
 
                 <Button
-                    android:id="@+id/buttonTimer3"
+                    android:id="@+id/buttonNCubes"
                     android:layout_width="match_parent"
                     android:layout_height="60sp"
                     android:backgroundTint="@android:color/holo_green_dark"
@@ -131,15 +132,16 @@
                     android:text="N x N x N cubes" />
 
                 <Button
-                    android:id="@+id/buttonTimer4"
+                    android:id="@+id/buttonWCAPuzzles"
                     android:layout_width="match_parent"
                     android:layout_height="60sp"
                     android:backgroundTint="@android:color/holo_red_dark"
                     android:onClick="loadSelectedPage"
-                    android:text="other WCA puzzles" />
+                    android:text="other WCA puzzles"
+                    android:textColor="@color/white" />
 
                 <Button
-                    android:id="@+id/buttonTimer5"
+                    android:id="@+id/buttonNonWCAPuzzles"
                     android:layout_width="match_parent"
                     android:layout_height="60sp"
                     android:backgroundTint="@android:color/holo_green_dark"

@@ -10,6 +10,10 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
 
     Button buttonTimer;
+    Button buttonRecords;
+    Button buttonNCubes;
+    Button buttonWCAPuzzles;
+    Button buttonNonWCAPuzzles;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +21,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         buttonTimer = findViewById(R.id.buttonTimer);
+        buttonRecords = findViewById(R.id.buttonRecords);
+        buttonNCubes = findViewById(R.id.buttonNCubes);
+        buttonWCAPuzzles = findViewById(R.id.buttonWCAPuzzles);
+        buttonNonWCAPuzzles = findViewById(R.id.buttonNonWCAPuzzles);
     }
 
     public void loadSelectedPage(android.view.View source){
@@ -26,6 +34,19 @@ public class MainActivity extends AppCompatActivity {
         if(source == buttonTimer){
             classToLoad = TimerActivity.class;
         }
+        else if(source == buttonRecords){
+            classToLoad = RecordsActivity.class;
+        }
+        else if(source == buttonNCubes){
+            classToLoad = NCubesActivity.class;
+        }
+        else if(source == buttonWCAPuzzles){
+            classToLoad = WCAPuzzlesActivity.class;
+        }
+        else if(source == buttonNonWCAPuzzles){
+            classToLoad = NonWCAPuzzlesActivity.class;
+        }
+
         //Defining which class to load in the new intent
         intent = new Intent(this, classToLoad);
         try{
