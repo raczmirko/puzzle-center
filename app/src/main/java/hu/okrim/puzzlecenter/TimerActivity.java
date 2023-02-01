@@ -1,12 +1,16 @@
 package hu.okrim.puzzlecenter;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.AbsListView;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,16 +19,21 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class TimerActivity extends AppCompatActivity {
+public class TimerActivity extends AppCompatActivity{
 
     static boolean timerIsRunning = false;
+    String currentPuzzle = null;
+    int currentPuzzleID = 0;
 
+    ArrayAdapter<CharSequence> spinnerAdapter;
     ArrayAdapter<String> listAdapter;
     Button buttonStartTimer;
     ConstraintLayout screen;
     LinearLayout linearLayout;
     ListView listOfTimes;
+    Spinner puzzleTypeSpinner;
     TextView textViewTime;
+    TextView textViewPuzzleType;
     Thread timer;
     SimpleDateFormat SDF = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 
@@ -35,41 +44,39 @@ public class TimerActivity extends AppCompatActivity {
 
         buttonStartTimer = findViewById(R.id.buttonStartTimer);
         screen = findViewById(R.id.wholeScreenLayout);
+        puzzleTypeSpinner = findViewById(R.id.spinner);
         linearLayout = findViewById(R.id.linearLayoutScreen);
         listOfTimes = findViewById(R.id.listViewTimes);
+        textViewTime = findViewById(R.id.textViewTime);
+        textViewPuzzleType = findViewById(R.id.textViewPuzzleType);
+
         listAdapter = new ArrayAdapter<>(this,R.layout.list_layout);
         listOfTimes.setAdapter(listAdapter);
-        textViewTime = findViewById(R.id.textViewTime);
 
-        //Adding onTouchListeners to the components so timer can be stopped
-        //by pressing the screen anywhere
-        listOfTimes.setOnTouchListener(new View.OnTouchListener() {
+        spinnerAdapter = ArrayAdapter.createFromResource(this, R.array.spinnerPuzzleType, android.R.layout.simple_spinner_item);
+        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        puzzleTypeSpinner.setAdapter(spinnerAdapter);
+        puzzleTypeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                if(timerIsRunning){
-                    endTimer();
-                    addTimeToList();
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if(!timerIsRunning){
+                    System.out.println("touched when timer is not running");
+                    currentPuzzle = parent.getItemAtPosition(position).toString();
+                    currentPuzzleID = position;
+                    ((TextView) parent.getChildAt(0)).setTextColor(Color.WHITE);
+                    ((TextView) parent.getChildAt(0)).setTextSize(20);
                 }
-                return true;
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
             }
         });
-        screen.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                if(timerIsRunning){
-                    endTimer();
-                    addTimeToList();
-                }
-                return true;
-            }
-        });
+
     }
 
-    public void startTimerThread(android.view.View source){
+    public void startTimerThread(){
         timerIsRunning = true;
-        //Disable button so it cannot be clicked anymore nor focused (not to mess up listener)
-        buttonStartTimer.setEnabled(false);
-        buttonStartTimer.setClickable(false);
+
         //Creating timer thread
         timer = new Thread(){
             @Override
@@ -93,6 +100,20 @@ public class TimerActivity extends AppCompatActivity {
         };
         if(!timer.isAlive()){
             timer.start();
+        }
+    }
+
+    public void solveTimerPressed(android.view.View source){
+        if(timerIsRunning){
+            endTimer();
+            addTimeToList();
+            puzzleTypeSpinner.setEnabled(true);
+            //Color.GREEN was too bright so had to grab another green
+            buttonStartTimer.setBackgroundColor(Color.parseColor("#ff669900"));
+        }else{
+            startTimerThread();
+            puzzleTypeSpinner.setEnabled(false);
+            buttonStartTimer.setBackgroundColor(Color.RED);
         }
     }
 
@@ -120,12 +141,11 @@ public class TimerActivity extends AppCompatActivity {
 
     public void endTimer(){
         timerIsRunning = false;
-        buttonStartTimer.setEnabled(true);
-        buttonStartTimer.setClickable(true);
     }
 
     public void addTimeToList(){
         String messageToInsert = SDF.format(new Date()) + " --- " + textViewTime.getText().toString();
         listAdapter.insert(messageToInsert,0);
     }
+
 }

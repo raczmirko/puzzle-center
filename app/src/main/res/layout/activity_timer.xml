@@ -31,56 +31,64 @@
             android:textAlignment="center"
             android:textSize="48sp" />
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-light"
-            android:text="Once the timer is started, click anywhere on the screen to stop the timer! Choose puzzle category below:"
-            android:textAlignment="gravity"
-            android:textSize="16sp" />
-
         <Space
             android:layout_width="match_parent"
-            android:layout_height="30sp" />
-
-        <Spinner
-            android:id="@+id/spinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/holo_green_dark" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="30sp" />
+            android:layout_height="20sp" />
 
         <TextView
             android:id="@+id/textViewTime"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-light"
+            android:fontFamily="sans-serif-thin"
             android:text="00:00:00"
             android:textAlignment="center"
-            android:textSize="48sp"
+            android:textSize="60sp"
             android:textStyle="bold" />
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="30sp" />
+            android:layout_height="20sp"
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/textViewPuzzleType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-light"
+            android:text="Choose puzzle type:"
+            android:textAlignment="center"
+            android:textSize="24sp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10sp" />
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="210sp"
+            android:layout_height="48sp"
+            android:background="@android:color/holo_orange_dark"
+            android:textAlignment="center"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20sp" />
 
         <Button
             android:id="@+id/buttonStartTimer"
             android:layout_width="match_parent"
-            android:layout_height="100sp"
+            android:layout_height="150sp"
             android:backgroundTint="@android:color/holo_green_dark"
             android:fontFamily="sans-serif-medium"
-            android:onClick="startTimerThread"
+            android:onClick="solveTimerPressed"
             android:text="Start Timer!"
+            android:textColor="@color/white"
             android:textSize="20sp" />
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="30sp" />
+            android:layout_height="20sp" />
 
         <ListView
             android:id="@+id/listViewTimes"
