@@ -9,10 +9,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
         android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -63,10 +63,6 @@
 
         </LinearLayout>
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="30sp" />
-
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -76,13 +72,80 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="30sp" />
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
+                    android:text="Utilities"
+                    android:textAlignment="center"
+                    android:textSize="24sp" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="30sp" />
+
                 <Button
                     android:id="@+id/buttonTimer"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="80sp"
                     android:backgroundTint="@android:color/holo_green_dark"
                     android:onClick="loadSelectedPage"
                     android:text="Solve timer" />
+
+                <Button
+                    android:id="@+id/buttonTimer2"
+                    android:layout_width="match_parent"
+                    android:layout_height="80sp"
+                    android:backgroundTint="@android:color/holo_red_dark"
+                    android:onClick="loadSelectedPage"
+                    android:text="Records" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="30sp" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
+                    android:text="Puzzle Algorithms By Category"
+                    android:textAlignment="center"
+                    android:textSize="24sp" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="30sp" />
+
+                <Button
+                    android:id="@+id/buttonTimer3"
+                    android:layout_width="match_parent"
+                    android:layout_height="60sp"
+                    android:backgroundTint="@android:color/holo_green_dark"
+                    android:onClick="loadSelectedPage"
+                    android:text="N x N x N cubes" />
+
+                <Button
+                    android:id="@+id/buttonTimer4"
+                    android:layout_width="match_parent"
+                    android:layout_height="60sp"
+                    android:backgroundTint="@android:color/holo_red_dark"
+                    android:onClick="loadSelectedPage"
+                    android:text="other WCA puzzles" />
+
+                <Button
+                    android:id="@+id/buttonTimer5"
+                    android:layout_width="match_parent"
+                    android:layout_height="60sp"
+                    android:backgroundTint="@android:color/holo_green_dark"
+                    android:onClick="loadSelectedPage"
+                    android:text="non wca puzzles" />
+
             </LinearLayout>
         </ScrollView>
 

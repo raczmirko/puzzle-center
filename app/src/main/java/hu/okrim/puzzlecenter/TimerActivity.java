@@ -2,9 +2,7 @@ package hu.okrim.puzzlecenter;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.view.MotionEvent;
 import android.view.View;
-import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -144,7 +142,7 @@ public class TimerActivity extends AppCompatActivity{
     }
 
     public void addTimeToList(){
-        String messageToInsert = SDF.format(new Date()) + " --- " + textViewTime.getText().toString();
+        String messageToInsert = SDF.format(new Date()) + "  |  " + textViewTime.getText().toString() + "  |  " + puzzleTypeSpinner.getSelectedItem().toString();
         listAdapter.insert(messageToInsert,0);
     }
 
