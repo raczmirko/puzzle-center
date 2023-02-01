@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">PuzzleCenter</string>
+    <string-array name="spinnerPuzzleType">
+        <item>2x2x2</item>
+        <item>3x3x3</item>
+        <item>4x4x4</item>
+        <item>5x5x5</item>
+        <item>6x6x6</item>
+        <item>7x7x7</item>
+        <item>Pyraminx</item>
+        <item>Megaminx</item>
+        <item>Square-1</item>
+        <item>Skewb</item>
+        <item>Magic Clock</item>
+    </string-array>
+</resources>
