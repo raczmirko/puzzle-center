@@ -82,7 +82,6 @@ public class TimerActivity extends AppCompatActivity{
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if(!timerIsRunning){
-                    System.out.println("touched when timer is not running");
                     currentPuzzle = parent.getItemAtPosition(position).toString();
                     currentPuzzleID = position;
                     ((TextView) parent.getChildAt(0)).setTextColor(Color.WHITE);
@@ -99,11 +98,13 @@ public class TimerActivity extends AppCompatActivity{
     @Override
     protected void onResume() {
         super.onResume();
+        loadFromSharedPreferences();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
+        saveToSharedPreferences();
     }
 
     public void startTimerThread(){
@@ -182,22 +183,236 @@ public class TimerActivity extends AppCompatActivity{
     }
 
     public void addTimeToCorrespondingMap(int millis){
-        if(puzzleTypeSpinner.getSelectedItem().toString().equalsIgnoreCase("3x3x3")){
-            checkIfTimeIsRecord("3x3x3", millis);
+        switch(puzzleTypeSpinner.getSelectedItem().toString().toLowerCase()) {
+            case "2x2x2":
+                updateRecordTimes(n2Records,millis);
+                break;
+            case "3x3x3":
+                updateRecordTimes(n3Records,millis);
+                break;
+            case "4x4x4":
+                updateRecordTimes(n4Records,millis);
+                break;
+            case "5x5x5":
+                updateRecordTimes(n5Records,millis);
+                break;
+            case "6x6x6":
+                updateRecordTimes(n6Records,millis);
+                break;
+            case "7x7x7":
+                updateRecordTimes(n7Records,millis);
+                break;
+            case "pyraminx":
+                updateRecordTimes(pyraminxRecords,millis);
+                break;
+            case "megaminx":
+                updateRecordTimes(megaminxRecords,millis);
+                break;
+            case "skewb":
+                updateRecordTimes(skewbRecords,millis);
+                break;
+            case "magic clock":
+                updateRecordTimes(clockRecords,millis);
+                break;
+            case "square-1":
+                updateRecordTimes(squareOneRecords,millis);
+                break;
         }
     }
 
-    public void checkIfTimeIsRecord(String category, int millis){
-        HashMap<Integer, String> mapToCheck = new HashMap<>();
+//    public void checkIfTimeIsRecord(String category, int millis){
+//        HashMap<Integer, String> mapToCheck = new HashMap<>();
+//        int current1st = 0;
+//        int current2nd = 0;
+//        int current3rd = 0;
+//        String recordString = SDF.format(new Date()) + "-" + millis;
+//        //Determining what puzzle the user is timing currently
+//        switch(category){
+//            case "2x2x2":
+//                mapToCheck = n2Records;
+//                break;
+//            case "3x3x3":
+//                mapToCheck = n3Records;
+//                break;
+//            case "4x4x4":
+//                mapToCheck = n4Records;
+//                break;
+//            case "5x5x5":
+//                mapToCheck = n5Records;
+//                break;
+//            case "6x6x6":
+//                mapToCheck = n6Records;
+//                break;
+//            case "7x7x7":
+//                mapToCheck = n7Records;
+//                break;
+//            case "pyraminx":
+//                mapToCheck = pyraminxRecords;
+//                break;
+//            case "megaminx":
+//                mapToCheck = megaminxRecords;
+//                break;
+//            case "skewb":
+//                mapToCheck = skewbRecords;
+//                break;
+//            case "clock":
+//                mapToCheck = clockRecords;
+//                break;
+//            case "squareOne":
+//                mapToCheck = squareOneRecords;
+//                break;
+//        }
+//        //Getting records so that we can compare them to new results
+//        //1st place doesn't exist
+//        if(mapToCheck.get(1) == null){
+//            //So current time will be new record in any case
+//            mapToCheck.put(1, recordString);
+//            current1st = millis;
+//            Log.d("newRecord", "New record logged, no previous record found: " + millis);
+//            System.out.println("New record logged, no previous record was found.");
+//        }
+//        //1st place exists, but 2nd place doesn't yet exist
+//        //2nd record doesn't exist yet
+//        else if (mapToCheck.get(2) == null) {
+//            //Since in this branch 1st place must exist we get it from Map
+//            //Catching NullPointerException of .split()
+//            try{
+//                current1st = Integer.parseInt(mapToCheck.get(1).split("-")[1]);
+//            }catch(NullPointerException NPE){
+//                System.out.println(NPE.getMessage());
+//            }
+//            //If current time is less than 1st then current -> 1st and 1st -> 2nd
+//            if(millis < current1st){
+//                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+//                    //Previous 1st moves to 2nd place
+//                    mapToCheck.put(2, mapToCheck.get(1));
+//                    //If 2nd was empty 3rd will surely be empty so no need to check
+//                    //Adding new 1st place after 2nd and 3rd values are moved correctly
+//                    mapToCheck.replace(1, recordString);
+//                }
+//                Log.d("newRecord", "New 1st place logged: " + millis + ". Previous record is now 2nd best time.");
+//                System.out.println("New 1st place logged: " + millis + ". Previous record is now 2nd best time.");
+//            }
+//            //If current time is more than 1st then current -> 2nd
+//            // (since in this branch there was no 2nd there is no need to shift 2nd -> 3rd)
+//            else if(millis > current1st){
+//                mapToCheck.put(2, recordString);
+//                Log.d("newRecord", "New 2nd place logged, no previous 2nd place found: " + millis);
+//                System.out.println("New 2nd place logged, no previous 2nd place found: " + millis);
+//            }
+//        }
+//        //1st and 2nd places exist but 3rd doesn't yet exist
+//        //3rd record doesn't exist yet
+//        else if (mapToCheck.get(3) == null) {
+//            //Since in this branch 1st and 2nd places must exist we get them from Map
+//            //Catching NullPointerException of .split()
+//            try{
+//                current1st = Integer.parseInt(mapToCheck.get(1).split("-")[1]);
+//            }catch(NullPointerException NPE){
+//                System.out.println(NPE.getMessage());
+//            }
+//            try{
+//                current2nd = Integer.parseInt(mapToCheck.get(2).split("-")[1]);
+//            }catch(NullPointerException NPE){
+//                System.out.println(NPE.getMessage());
+//            }
+//            //If current time is less than previous 1st
+//            if(millis < current1st){
+//                //2nd -> 3rd
+//                mapToCheck.put(3,mapToCheck.get(2));
+//                //replace requires API24
+//                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+//                    //1st -> 2nd
+//                    mapToCheck.replace(2, mapToCheck.get(1));
+//                    //new 1st
+//                    mapToCheck.replace(1,recordString);
+//                }
+//                Log.d("newRecord", "New 1st place logged: " + millis + ". Previous record is now 2nd best time.");
+//                System.out.println("New 1st place logged: " + millis + ". Previous record is now 2nd best time.");
+//            }
+//            //If current time is more than 1st but less than 2nd
+//            else if(millis > current1st && millis < current2nd){
+//                //Since in this branch there was no 3rd we just add 2nd to 3rd place
+//                mapToCheck.put(3, mapToCheck.get(2));
+//                //replace requires API24
+//                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+//                    //And replace 2nd with new value
+//                    mapToCheck.replace(2, recordString);
+//                }
+//                Log.d("newRecord", "New 2nd place logged, no previous 2nd place found: " + millis  + ". Previous 2nd is now 3rd best time.");
+//                System.out.println("New 2nd place logged, no previous 2nd place found: " + millis  + ". Previous 2nd is now 3rd best time.");
+//            }
+//            //If current time is more than 1st and 2nd and there is no 3rd place currently
+//            else{
+//                mapToCheck.put(3, recordString);
+//            }
+//            Log.d("newRecord", "New 3rd place logged, no previous 3rd place found: " + millis);
+//            System.out.println("New 3rd place logged, no previous 3rd place found: " + millis);
+//        }
+//        //1sr 2nd and 3rd places all exist already
+//        else{
+//            try{
+//                current1st = Integer.parseInt(mapToCheck.get(1).split("-")[1]);
+//            }catch(NullPointerException NPE){
+//                System.out.println(NPE.getMessage());
+//            }
+//            try{
+//                current2nd = Integer.parseInt(mapToCheck.get(2).split("-")[1]);
+//            }catch(NullPointerException NPE){
+//                System.out.println(NPE.getMessage());
+//            }
+//            try{
+//                current3rd = Integer.parseInt(mapToCheck.get(3).split("-")[1]);
+//            }catch(NullPointerException NPE){
+//                System.out.println(NPE.getMessage());
+//            }
+//            //Case 1: new time is better than previous best time (shifting 1st to 2nd & 2nd to 3rd)
+//            //1st place exists but is worse then new time
+//            if(millis < current1st) {
+//                //Function requires API24 at least
+//                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+//                    //3rd gets discarded and overwrittend by 2nd
+//                    mapToCheck.replace(3, mapToCheck.get(2));
+//                    //2nd gets replaced by 1st
+//                    mapToCheck.replace(2, mapToCheck.get(1));
+//                    //New 1st place is saved
+//                    mapToCheck.replace(1, recordString);
+//                }
+//                Log.d("newRecord", "New 1st place logged: " + millis + ". Shifting 2nd and 3rd places.");
+//                System.out.println("New 1st place logged: " + millis + ". Shifting 2nd and 3rd places.");
+//            }
+//            else if (millis > current1st && millis < current2nd) {
+//                //Function requires API24 at least
+//                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+//                    //Previous 2nd moves to 3rd place, discarding previous 3rd
+//                    mapToCheck.replace(3, mapToCheck.get(2));
+//                    //Adding new 2nd place after 2nd value is moved to 3rd place
+//                    mapToCheck.replace(2, recordString);
+//                }
+//                Log.d("newRecord", "New 2nd place logged: " + millis + ". Shifting 2nd to 3rd place.");
+//                System.out.println("New 2nd place logged: " + millis + ". Shifting 2nd to 3rd place.");
+//            }
+//            else if(millis > current2nd && millis < current3rd){
+//                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+//                    //3rd value gets replaced by new record
+//                    mapToCheck.replace(3, recordString);
+//                }
+//                Log.d("newRecord", "New 3rd place logged: " + millis + ". Discarding old 3rd place.");
+//                System.out.println("New 3rd place logged: " + millis + ". Discarding old 3rd place.");
+//            }
+//        }
+//        //Printing the current leaderboard
+//        System.out.println("1st time: " + mapToCheck.get(1));
+//        System.out.println("2nd time: " + mapToCheck.get(2));
+//        System.out.println("3rd time: " + mapToCheck.get(3));
+//    }
+
+    public void updateRecordTimes(HashMap<Integer, String> mapToCheck, int millis){
         int current1st = 0;
         int current2nd = 0;
         int current3rd = 0;
         String recordString = SDF.format(new Date()) + "-" + millis;
-        switch(category){
-            case "3x3x3":
-                mapToCheck = n3Records;
-                break;
-        }
+
         //Getting records so that we can compare them to new results
         //1st place doesn't exist
         if(mapToCheck.get(1) == null){
@@ -345,22 +560,65 @@ public class TimerActivity extends AppCompatActivity{
 
     void saveToSharedPreferences(){
         SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref",MODE_PRIVATE);
-//        SharedPreferences.Editor myEditor = sharedPreferences.edit();
-
-//        myEditor.putString("mood", spinner.getSelectedItem().toString());
-//        myEditor.commit();
-//
-//        System.out.println("Saved " + spinner.getSelectedItem().toString());
+        SharedPreferences.Editor myEditor = sharedPreferences.edit();
+        saveAllElementsToSharedPrefences(n2Records, "2x2x2", myEditor);
+        saveAllElementsToSharedPrefences(n3Records, "3x3x3", myEditor);
+        saveAllElementsToSharedPrefences(n4Records, "4x4x4", myEditor);
+        saveAllElementsToSharedPrefences(n5Records, "5x5x5", myEditor);
+        saveAllElementsToSharedPrefences(n6Records, "6x6x6", myEditor);
+        saveAllElementsToSharedPrefences(n7Records, "7x7x7", myEditor);
+        saveAllElementsToSharedPrefences(pyraminxRecords, "pyraminx", myEditor);
+        saveAllElementsToSharedPrefences(megaminxRecords, "megaminx", myEditor);
+        saveAllElementsToSharedPrefences(skewbRecords, "skewb", myEditor);
+        saveAllElementsToSharedPrefences(squareOneRecords, "square1", myEditor);
+        saveAllElementsToSharedPrefences(clockRecords, "clock", myEditor);
     }
 
     void loadFromSharedPreferences(){
         SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE);
-//        String mood = sharedPreferences.getString("mood", "");
-//        for(int i = 0; i < spinner.getCount(); i++){
-//            if(spinner.getItemAtPosition(i).toString().equalsIgnoreCase(mood)){
-//                spinner.setSelection(i);
-//            }
-//        }
-//        System.out.println("Loaded " + mood);
+        loadAllElementsFromSharedPrefences(n2Records,"2x2x2", sharedPreferences);
+        loadAllElementsFromSharedPrefences(n3Records,"3x3x3", sharedPreferences);
+        loadAllElementsFromSharedPrefences(n4Records,"4x4x4", sharedPreferences);
+        loadAllElementsFromSharedPrefences(n5Records,"5x5x5", sharedPreferences);
+        loadAllElementsFromSharedPrefences(n6Records,"6x6x6", sharedPreferences);
+        loadAllElementsFromSharedPrefences(n7Records,"7x7x7", sharedPreferences);
+        loadAllElementsFromSharedPrefences(pyraminxRecords,"pyraminx", sharedPreferences);
+        loadAllElementsFromSharedPrefences(megaminxRecords,"megaminx", sharedPreferences);
+        loadAllElementsFromSharedPrefences(skewbRecords,"skewb", sharedPreferences);
+        loadAllElementsFromSharedPrefences(squareOneRecords,"square1", sharedPreferences);
+        loadAllElementsFromSharedPrefences(clockRecords,"clock", sharedPreferences);
+    }
+
+    void saveAllElementsToSharedPrefences(HashMap<Integer, String> map, String mapName,SharedPreferences.Editor editor){
+        for(int i = 1; i < map.size() + 1; i++){
+            try{
+                //Concating mapName with key index, example: 3x3x3_1
+                String keyName = mapName.concat("_").concat(String.valueOf(i));
+                editor.putString(keyName, map.get(i));
+                System.out.println("Saving: " + keyName + " = " + map.get(i));
+                editor.apply();
+            }catch(NullPointerException NPE){
+                Log.d("SharedPreferenceSaveError", "NullPointerException occurred whilst saving.");
+                System.out.println("NullPointerException occurred whilst saving to sharedPreferences.");
+            }
+        }
+    }
+
+    void loadAllElementsFromSharedPrefences(HashMap<Integer, String> map, String key, SharedPreferences sharedPreferences){
+        //We know each key has 3 entries maximum in the map since we've got a top 3 leaderboard
+        for(int i = 1; i < 3 + 1; i++){
+            try{
+                //Concating mapName with key index, example: 3x3x3_1
+                String keyName = key.concat("_").concat(String.valueOf(i));
+                //If element is not found then we just default it to null
+                String valueToStore = sharedPreferences.getString(keyName, null);
+                if(valueToStore != null){
+                    map.put(i,valueToStore);
+                }
+            }catch(NullPointerException NPE){
+                Log.d("SharedPreferenceLoadError", "NullPointerException occurred whilst loading.");
+                System.out.println("NullPointerException occurred whilst loading from sharedPreferences.");
+            }
+        }
     }
 }
