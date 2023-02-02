@@ -1,5 +1,13 @@
 <resources>
     <string name="app_name">PuzzleCenter</string>
+    <string name="n_x_n_x_n_cubes">n x n x n cubes</string>
+    <string name="_2x2x2">2x2x2</string>
+    <string name="_3x3x3">3x3x3</string>
+    <string name="_4x4x4">4x4x4</string>
+    <string name="_5x5x5">5x5x5</string>
+    <string name="_6x6x6">6x6x6</string>
+    <string name="_7x7x7">7x7x7</string>
+    <string name="todo">TODO</string>
     <string-array name="spinnerPuzzleType">
         <item>2x2x2</item>
         <item>3x3x3</item>

@@ -38,13 +38,13 @@ public class MainActivity extends AppCompatActivity {
             classToLoad = RecordsActivity.class;
         }
         else if(source == buttonNCubes){
-            classToLoad = NCubesActivity.class;
+            classToLoad = NCubesMenuActivity.class;
         }
         else if(source == buttonWCAPuzzles){
-            classToLoad = WCAPuzzlesActivity.class;
+            classToLoad = WCAMenuActivity.class;
         }
         else if(source == buttonNonWCAPuzzles){
-            classToLoad = NonWCAPuzzlesActivity.class;
+            classToLoad = NonWCAMenuActivity.class;
         }
 
         //Defining which class to load in the new intent
