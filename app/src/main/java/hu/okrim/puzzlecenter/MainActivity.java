@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void loadSelectedPage(android.view.View source){
         Class classToLoad = null;
-        Intent intent = null;
+        Intent intent;
 
         if(source == buttonTimer){
             classToLoad = TimerActivity.class;

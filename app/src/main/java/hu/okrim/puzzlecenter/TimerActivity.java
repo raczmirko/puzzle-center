@@ -1,6 +1,8 @@
 package hu.okrim.puzzlecenter;
 
+import android.app.Activity;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -53,8 +55,11 @@ public class TimerActivity extends AppCompatActivity{
         textViewTime = findViewById(R.id.textViewTime);
         textViewPuzzleType = findViewById(R.id.textViewPuzzleType);
 
-        listAdapter = new ArrayAdapter<>(this,R.layout.list_layout);
-        listOfTimes.setAdapter(listAdapter);
+        //Since landscape mode doesn't have a list we only set adapter etc. if in portrait mode
+        if(this.getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT){
+            listAdapter = new ArrayAdapter<>(this,R.layout.list_layout);
+            listOfTimes.setAdapter(listAdapter);
+        }
 
         spinnerAdapter = ArrayAdapter.createFromResource(this, R.array.spinnerPuzzleType, android.R.layout.simple_spinner_item);
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -104,7 +109,13 @@ public class TimerActivity extends AppCompatActivity{
                         if(timerIsRunning){
                             currentMillis += 10;
                             String timeText = TimeFormatController.createTimeText(currentMillis);
-                            textViewTime.setText(timeText);
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    // Stuff that updates the UI
+                                    textViewTime.setText(timeText);
+                                }
+                            });
                         }
                     }
                 } catch (InterruptedException e) {
@@ -159,8 +170,10 @@ public class TimerActivity extends AppCompatActivity{
     }
 
     public void addTimeToList(){
-        String messageToInsert = SDF.format(new Date()) + "  |  " + textViewTime.getText().toString() + "  |  " + puzzleTypeSpinner.getSelectedItem().toString();
-        listAdapter.insert(messageToInsert,0);
+        if(this.getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
+            String messageToInsert = SDF.format(new Date()) + "  |  " + textViewTime.getText().toString() + "  |  " + puzzleTypeSpinner.getSelectedItem().toString();
+            listAdapter.insert(messageToInsert, 0);
+        }
     }
 
     public void addTimeToCorrespondingMap(int millis){

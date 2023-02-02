@@ -31,7 +31,7 @@ public class NCubesMenuActivity extends AppCompatActivity {
 
     public void loadNewIntent(android.view.View source){
         Class classToLoad = null;
-        Intent intent = null;
+        Intent intent;
 
         if(source == button2x2){
             classToLoad = Puzzle2x2x2Activity.class;
