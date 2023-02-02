@@ -98,11 +98,11 @@ public class TimerActivity extends AppCompatActivity{
             public void run() {
                 try {
                     while(timerIsRunning){
-                        Thread.sleep(100);
+                        Thread.sleep(10);
                         //Checking if Thread is still running because if we stopped the app
                         //whilst loop was running we don't want to increment timer
                         if(timerIsRunning){
-                            currentMillis += 100;
+                            currentMillis += 10;
                             String timeText = TimeFormatController.createTimeText(currentMillis);
                             textViewTime.setText(timeText);
                         }

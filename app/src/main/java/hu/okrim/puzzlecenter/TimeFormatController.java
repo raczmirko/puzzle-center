@@ -17,7 +17,7 @@ public abstract class TimeFormatController {
         stringBuilder.append(minutes.length() == 1 ? "0" + minutes : minutes);
         stringBuilder.append(":");
         stringBuilder.append(seconds.length() == 1 ? "0" + seconds : seconds);
-        stringBuilder.append(":");
+        stringBuilder.append(".");
         stringBuilder.append(millis.length() == 1 ? "0" + millis : millis);
 
         return stringBuilder.toString();
