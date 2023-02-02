@@ -197,118 +197,147 @@ public class TimerActivity extends AppCompatActivity{
             case "3x3x3":
                 mapToCheck = n3Records;
                 break;
-
         }
-
-        //Case 1: new time is better than previous best time (shifting 1st to 2nd & 2nd to 3rd)
+        //Getting records so that we can compare them to new results
         //1st place doesn't exist
         if(mapToCheck.get(1) == null){
-            //So we add it
+            //So current time will be new record in any case
             mapToCheck.put(1, recordString);
             current1st = millis;
             Log.d("newRecord", "New record logged, no previous record found: " + millis);
             System.out.println("New record logged, no previous record was found.");
-        }else{
+        }
+        //1st place exists, but 2nd place doesn't yet exist
+        //2nd record doesn't exist yet
+        else if (mapToCheck.get(2) == null) {
+            //Since in this branch 1st place must exist we get it from Map
+            //Catching NullPointerException of .split()
             try{
                 current1st = Integer.parseInt(mapToCheck.get(1).split("-")[1]);
             }catch(NullPointerException NPE){
                 System.out.println(NPE.getMessage());
             }
-        }
-
-        //1st place exists but is worse then new time
-        if(millis < current1st) {
-            //Function requires API24 at least
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                //Previous 1st moves to 2nd place
-                if (mapToCheck.get(2) == null) {
-                    //If there was no previous 2nd then we just add a new one
+            //If current time is less than 1st then current -> 1st and 1st -> 2nd
+            if(millis < current1st){
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                    //Previous 1st moves to 2nd place
                     mapToCheck.put(2, mapToCheck.get(1));
-                } else {
-                    if (mapToCheck.get(3) == null) {
-                        //Previous 2nd moves to 3rd place by creating new 3rd
-                        mapToCheck.put(3, mapToCheck.get(2));
-                        //Previous 1st moves to 2nd place
-                        mapToCheck.replace(2, mapToCheck.get(1));
-                    } else {
-                        //Previous 2nd moves to 3rd place, discarding previous 3rd
-                        mapToCheck.replace(3, mapToCheck.get(2));
-                        //Previous 1st moves to 2nd
-                        mapToCheck.replace(2, mapToCheck.get(1));
-                    }
+                    //If 2nd was empty 3rd will surely be empty so no need to check
+                    //Adding new 1st place after 2nd and 3rd values are moved correctly
+                    mapToCheck.replace(1, recordString);
                 }
-                //Adding new 1st place after 2nd and 3rd values are moved correctly
-                mapToCheck.replace(1, recordString);
+                Log.d("newRecord", "New 1st place logged: " + millis + ". Previous record is now 2nd best time.");
+                System.out.println("New 1st place logged: " + millis + ". Previous record is now 2nd best time.");
             }
-            Log.d("newRecord", "New record logged: " + millis + ". Shifting 2nd and 3rd places.");
-            System.out.println("New best record logged: " + millis + ". Shifting 2nd and 3rd places.");
-        }
-        else {
-            //Case 2: new time is 2nd best time overall (shifting 2nd place to 3rd)
-            //2nd record doesn't exist yet
-            if (mapToCheck.get(2) == null) {
-                //So we add it
+            //If current time is more than 1st then current -> 2nd
+            // (since in this branch there was no 2nd there is no need to shift 2nd -> 3rd)
+            else if(millis > current1st){
                 mapToCheck.put(2, recordString);
-                current2nd = millis;
                 Log.d("newRecord", "New 2nd place logged, no previous 2nd place found: " + millis);
                 System.out.println("New 2nd place logged, no previous 2nd place found: " + millis);
-            } else {
-                try{
-                    current2nd = Integer.parseInt(mapToCheck.get(2).split("-")[1]);
-                }catch(NullPointerException NPE){
-                    System.out.println(NPE.getMessage());
-                }
             }
-            //Second record exists but is worse than new time
-            if (millis > current1st && millis < current2nd) {
+        }
+        //1st and 2nd places exist but 3rd doesn't yet exist
+        //3rd record doesn't exist yet
+        else if (mapToCheck.get(3) == null) {
+            //Since in this branch 1st and 2nd places must exist we get them from Map
+            //Catching NullPointerException of .split()
+            try{
+                current1st = Integer.parseInt(mapToCheck.get(1).split("-")[1]);
+            }catch(NullPointerException NPE){
+                System.out.println(NPE.getMessage());
+            }
+            try{
+                current2nd = Integer.parseInt(mapToCheck.get(2).split("-")[1]);
+            }catch(NullPointerException NPE){
+                System.out.println(NPE.getMessage());
+            }
+            //If current time is less than previous 1st
+            if(millis < current1st){
+                //2nd -> 3rd
+                mapToCheck.put(3,mapToCheck.get(2));
+                //replace requires API24
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                    //Previous 2nd moves to 3rd place
-                    if (mapToCheck.get(3) == null) {
-                        //If there was no previous 3rd then we just add a new one
-                        mapToCheck.put(3, mapToCheck.get(2));
-                    } else {
-                        //Previous 2nd moves to 3rd place, discarding previous 3rd
-                        mapToCheck.replace(3, mapToCheck.get(2));
-                    }
+                    //1st -> 2nd
+                    mapToCheck.replace(2, mapToCheck.get(1));
+                    //new 1st
+                    mapToCheck.replace(1,recordString);
+                }
+                Log.d("newRecord", "New 1st place logged: " + millis + ". Previous record is now 2nd best time.");
+                System.out.println("New 1st place logged: " + millis + ". Previous record is now 2nd best time.");
+            }
+            //If current time is more than 1st but less than 2nd
+            else if(millis > current1st && millis < current2nd){
+                //Since in this branch there was no 3rd we just add 2nd to 3rd place
+                mapToCheck.put(3, mapToCheck.get(2));
+                //replace requires API24
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                    //And replace 2nd with new value
+                    mapToCheck.replace(2, recordString);
+                }
+                Log.d("newRecord", "New 2nd place logged, no previous 2nd place found: " + millis  + ". Previous 2nd is now 3rd best time.");
+                System.out.println("New 2nd place logged, no previous 2nd place found: " + millis  + ". Previous 2nd is now 3rd best time.");
+            }
+            //If current time is more than 1st and 2nd and there is no 3rd place currently
+            else{
+                mapToCheck.put(3, recordString);
+            }
+            Log.d("newRecord", "New 3rd place logged, no previous 3rd place found: " + millis);
+            System.out.println("New 3rd place logged, no previous 3rd place found: " + millis);
+        }
+        //1sr 2nd and 3rd places all exist already
+        else{
+            try{
+                current1st = Integer.parseInt(mapToCheck.get(1).split("-")[1]);
+            }catch(NullPointerException NPE){
+                System.out.println(NPE.getMessage());
+            }
+            try{
+                current2nd = Integer.parseInt(mapToCheck.get(2).split("-")[1]);
+            }catch(NullPointerException NPE){
+                System.out.println(NPE.getMessage());
+            }
+            try{
+                current3rd = Integer.parseInt(mapToCheck.get(3).split("-")[1]);
+            }catch(NullPointerException NPE){
+                System.out.println(NPE.getMessage());
+            }
+            //Case 1: new time is better than previous best time (shifting 1st to 2nd & 2nd to 3rd)
+            //1st place exists but is worse then new time
+            if(millis < current1st) {
+                //Function requires API24 at least
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                    //3rd gets discarded and overwrittend by 2nd
+                    mapToCheck.replace(3, mapToCheck.get(2));
+                    //2nd gets replaced by 1st
+                    mapToCheck.replace(2, mapToCheck.get(1));
+                    //New 1st place is saved
+                    mapToCheck.replace(1, recordString);
+                }
+                Log.d("newRecord", "New 1st place logged: " + millis + ". Shifting 2nd and 3rd places.");
+                System.out.println("New 1st place logged: " + millis + ". Shifting 2nd and 3rd places.");
+            }
+            else if (millis > current1st && millis < current2nd) {
+                //Function requires API24 at least
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                    //Previous 2nd moves to 3rd place, discarding previous 3rd
+                    mapToCheck.replace(3, mapToCheck.get(2));
                     //Adding new 2nd place after 2nd value is moved to 3rd place
                     mapToCheck.replace(2, recordString);
                 }
-                Log.d("newRecord", "New 2nd place logged: " + millis + ". Shifting 2nd and 3rd places.");
-                System.out.println("New 2nd place logged: " + millis + ". Shifting 2nd and 3rd places.");
-
+                Log.d("newRecord", "New 2nd place logged: " + millis + ". Shifting 2nd to 3rd place.");
+                System.out.println("New 2nd place logged: " + millis + ". Shifting 2nd to 3rd place.");
             }
-            else {
-                //Case 3: new time is 3nd best time overall (nothing to)
-                //3rd record doesn't exist yet
-                if (mapToCheck.get(3) == null) {
-                    //So we add it
-                    mapToCheck.put(3, recordString);
-                    current3rd = millis;
-                    Log.d("newRecord", "New 3rd place logged, no previous 3rd place found: " + millis);
-                    System.out.println("New 3rd place logged, no previous 3rd place found: " + millis);
-                } else {
-                    try{
-                        current3rd = Integer.parseInt(mapToCheck.get(3).split("-")[1]);
-                    }catch(NullPointerException NPE){
-                        System.out.println(NPE.getMessage());
-                    }
+            else if(millis > current2nd && millis < current3rd){
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                    //3rd value gets replaced by new record
+                    mapToCheck.replace(3, recordString);
                 }
-                if (millis > current2nd && millis < current3rd) {
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                        //3rd record gets added or replaced
-                        if (mapToCheck.get(3) == null) {
-                            //If there was no previous 3rd then we just add a new one
-                            mapToCheck.put(3, recordString);
-                        } else {
-                            //If there was, it gets replaced
-                            mapToCheck.replace(3, recordString);
-                        }
-                    }
-                    Log.d("newRecord", "New 3rd place logged: " + millis + ". Discarding old 3rd place.");
-                    System.out.println("New 3rd place logged: " + millis + ". Discarding old 3rd place.");
-                }
+                Log.d("newRecord", "New 3rd place logged: " + millis + ". Discarding old 3rd place.");
+                System.out.println("New 3rd place logged: " + millis + ". Discarding old 3rd place.");
             }
         }
+        //Printing the current leaderboard
         System.out.println("1st time: " + mapToCheck.get(1));
         System.out.println("2nd time: " + mapToCheck.get(2));
         System.out.println("3rd time: " + mapToCheck.get(3));
