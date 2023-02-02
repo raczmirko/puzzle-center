@@ -34,21 +34,21 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".NonWCAPuzzlesActivity"
+            android:name=".Puzzle2x2x2Activity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".WCAPuzzlesActivity"
+            android:name=".Puzzle4x4x4Activity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".NCubesActivity"
+            android:name=".Puzzle3x3x3Activity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

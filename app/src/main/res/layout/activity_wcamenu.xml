@@ -6,4 +6,185 @@
     android:layout_height="match_parent"
     tools:context=".WCAMenuActivity">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textViewWCATitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:text="WCA Puzzles"
+                android:textAlignment="center"
+                android:textSize="34sp" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="30sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:textAlignment="center">
+
+                <ImageView
+                    android:id="@+id/imageViewSkewb"
+                    android:layout_width="100sp"
+                    android:layout_height="100sp"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/skewb" />
+
+                <Button
+                    android:id="@+id/buttonSkewb"
+                    android:layout_width="160sp"
+                    android:layout_height="match_parent"
+                    android:backgroundTint="#35aa12"
+                    android:fontFamily="sans-serif-light"
+                    android:text="Skewb"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="30sp"
+                android:layout_weight="1" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:textAlignment="center">
+
+                <Button
+                    android:id="@+id/buttonSquareOne"
+                    android:layout_width="160sp"
+                    android:layout_height="match_parent"
+                    android:backgroundTint="#ff9400"
+                    android:fontFamily="sans-serif-light"
+                    android:text="Square-1"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+                <ImageView
+                    android:id="@+id/imageViewSquareOne"
+                    android:layout_width="100sp"
+                    android:layout_height="100sp"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/square1" />
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="30sp"
+                android:layout_weight="1" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:textAlignment="center">
+
+                <ImageView
+                    android:id="@+id/imageViewPyraminx"
+                    android:layout_width="100sp"
+                    android:layout_height="100sp"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/pyraminx" />
+
+                <Button
+                    android:id="@+id/buttonPyraminx"
+                    android:layout_width="160sp"
+                    android:layout_height="match_parent"
+                    android:backgroundTint="#ffec04"
+                    android:fontFamily="sans-serif-light"
+                    android:text="Pyraminx"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="30sp"
+                android:layout_weight="1" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:textAlignment="center">
+
+                <Button
+                    android:id="@+id/buttonMegaminx"
+                    android:layout_width="160sp"
+                    android:layout_height="match_parent"
+                    android:backgroundTint="#d40b0b"
+                    android:fontFamily="sans-serif-light"
+                    android:text="Megaminx"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+
+                <ImageView
+                    android:id="@+id/imageViewMegaminx"
+                    android:layout_width="100sp"
+                    android:layout_height="100sp"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/megaminx" />
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="30sp"
+                android:layout_weight="1" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:textAlignment="center">
+
+                <ImageView
+                    android:id="@+id/imageViewClock"
+                    android:layout_width="100sp"
+                    android:layout_height="100sp"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/clock" />
+
+                <Button
+                    android:id="@+id/buttonClock"
+                    android:layout_width="160sp"
+                    android:layout_height="match_parent"
+                    android:backgroundTint="#1e0eed"
+                    android:fontFamily="sans-serif-light"
+                    android:text="Magic Clock"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
