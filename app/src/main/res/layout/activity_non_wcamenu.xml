@@ -28,7 +28,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-light"
-                android:text="Non WCA Puzzles"
+                android:text="@string/non_wca_puzzles"
                 android:textAlignment="center"
                 android:textSize="34sp" />
 
@@ -48,15 +48,16 @@
                     android:backgroundTint="#35aa12"
                     android:fontFamily="sans-serif-light"
                     android:onClick="loadNewIntent"
-                    android:text="Void Cube"
+                    android:text="@string/void_cube"
                     android:textColor="@color/white"
                     android:textSize="20sp" />
 
                 <ImageView
                     android:id="@+id/imageViewVoid"
-                    android:layout_width="100sp"
+                    android:layout_width="0dp"
                     android:layout_height="100sp"
                     android:layout_weight="1"
+                    android:contentDescription="@string/todo"
                     app:srcCompat="@drawable/resource_void" />
             </LinearLayout>
 
@@ -72,9 +73,10 @@
 
                 <ImageView
                     android:id="@+id/imageViewSuperIvy"
-                    android:layout_width="100sp"
+                    android:layout_width="0dp"
                     android:layout_height="100sp"
                     android:layout_weight="1"
+                    android:contentDescription="@string/todo"
                     app:srcCompat="@drawable/superivy" />
 
                 <Button
@@ -84,9 +86,10 @@
                     android:backgroundTint="#ff9400"
                     android:fontFamily="sans-serif-light"
                     android:onClick="loadNewIntent"
-                    android:text="Super Ivy Cube"
+                    android:text="@string/super_ivy_cube"
                     android:textColor="@color/white"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    tools:ignore="TextContrastCheck" />
             </LinearLayout>
 
             <Space
@@ -106,15 +109,16 @@
                     android:backgroundTint="#ffec04"
                     android:fontFamily="sans-serif-light"
                     android:onClick="loadNewIntent"
-                    android:text="Pentacle Cube"
+                    android:text="@string/pentacle_cube"
                     android:textColor="@color/black"
                     android:textSize="20sp" />
 
                 <ImageView
                     android:id="@+id/imageViewPentacle"
-                    android:layout_width="100sp"
+                    android:layout_width="0dp"
                     android:layout_height="100sp"
                     android:layout_weight="1"
+                    android:contentDescription="@string/todo"
                     app:srcCompat="@drawable/pentacle" />
             </LinearLayout>
 
@@ -130,9 +134,10 @@
 
                 <ImageView
                     android:id="@+id/imageView2x2Pyraminx"
-                    android:layout_width="100sp"
+                    android:layout_width="0dp"
                     android:layout_height="100sp"
                     android:layout_weight="1"
+                    android:contentDescription="@string/todo"
                     app:srcCompat="@drawable/_x2pyraminx" />
 
                 <Button
@@ -142,7 +147,7 @@
                     android:backgroundTint="#35aa12"
                     android:fontFamily="sans-serif-light"
                     android:onClick="loadNewIntent"
-                    android:text="2x2 Pyraminx"
+                    android:text="@string/_2x2_pyraminx"
                     android:textColor="@color/white"
                     android:textSize="20sp" />
             </LinearLayout>
@@ -164,15 +169,16 @@
                     android:backgroundTint="#d40b0b"
                     android:fontFamily="sans-serif-light"
                     android:onClick="loadNewIntent"
-                    android:text="2x2x4"
+                    android:text="@string/_2x2x4"
                     android:textColor="@color/white"
                     android:textSize="20sp" />
 
                 <ImageView
                     android:id="@+id/imageView2x2x4"
-                    android:layout_width="100sp"
+                    android:layout_width="0dp"
                     android:layout_height="100sp"
                     android:layout_weight="1"
+                    android:contentDescription="@string/todo"
                     android:rotation="90"
                     app:srcCompat="@drawable/_x2x4" />
             </LinearLayout>
@@ -189,9 +195,10 @@
 
                 <ImageView
                     android:id="@+id/imageViewMasterPyraminx"
-                    android:layout_width="100sp"
+                    android:layout_width="0dp"
                     android:layout_height="100sp"
                     android:layout_weight="1"
+                    android:contentDescription="@string/todo"
                     app:srcCompat="@drawable/masterpyraminx" />
 
                 <Button
@@ -201,7 +208,7 @@
                     android:backgroundTint="#1e0eed"
                     android:fontFamily="sans-serif-light"
                     android:onClick="loadNewIntent"
-                    android:text="Master Pyraminx"
+                    android:text="@string/master_pyraminx"
                     android:textColor="@color/white"
                     android:textSize="20sp" />
             </LinearLayout>

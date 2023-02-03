@@ -28,7 +28,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-light"
-                android:text="WCA Puzzles"
+                android:text="@string/wca_puzzles"
                 android:textAlignment="center"
                 android:textSize="34sp" />
 
@@ -45,9 +45,10 @@
 
                 <ImageView
                     android:id="@+id/imageViewSkewb"
-                    android:layout_width="100sp"
+                    android:layout_width="0dp"
                     android:layout_height="100sp"
                     android:layout_weight="1"
+                    android:contentDescription="@string/todo"
                     app:srcCompat="@drawable/skewb" />
 
                 <Button
@@ -57,9 +58,10 @@
                     android:backgroundTint="#35aa12"
                     android:fontFamily="sans-serif-light"
                     android:onClick="loadNewIntent"
-                    android:text="Skewb"
+                    android:text="@string/skewb"
                     android:textColor="@color/black"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    tools:ignore="TextContrastCheck" />
             </LinearLayout>
 
             <Space
@@ -82,15 +84,16 @@
                     android:backgroundTint="#ff9400"
                     android:fontFamily="sans-serif-light"
                     android:onClick="loadNewIntent"
-                    android:text="Square-1"
+                    android:text="@string/square_1"
                     android:textColor="@color/black"
                     android:textSize="20sp" />
 
                 <ImageView
                     android:id="@+id/imageViewSquareOne"
-                    android:layout_width="100sp"
+                    android:layout_width="0dp"
                     android:layout_height="100sp"
                     android:layout_weight="1"
+                    android:contentDescription="@string/todo"
                     app:srcCompat="@drawable/square1" />
             </LinearLayout>
 
@@ -109,9 +112,10 @@
 
                 <ImageView
                     android:id="@+id/imageViewPyraminx"
-                    android:layout_width="100sp"
+                    android:layout_width="0dp"
                     android:layout_height="100sp"
                     android:layout_weight="1"
+                    android:contentDescription="@string/todo"
                     app:srcCompat="@drawable/pyraminx" />
 
                 <Button
@@ -121,9 +125,10 @@
                     android:backgroundTint="#ffec04"
                     android:fontFamily="sans-serif-light"
                     android:onClick="loadNewIntent"
-                    android:text="Pyraminx"
+                    android:text="@string/pyraminx"
                     android:textColor="@color/black"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    tools:ignore="TextContrastCheck" />
             </LinearLayout>
 
             <Space
@@ -146,15 +151,16 @@
                     android:backgroundTint="#d40b0b"
                     android:fontFamily="sans-serif-light"
                     android:onClick="loadNewIntent"
-                    android:text="Megaminx"
+                    android:text="@string/megaminx"
                     android:textColor="@color/white"
                     android:textSize="20sp" />
 
                 <ImageView
                     android:id="@+id/imageViewMegaminx"
-                    android:layout_width="100sp"
+                    android:layout_width="0dp"
                     android:layout_height="100sp"
                     android:layout_weight="1"
+                    android:contentDescription="@string/todo"
                     app:srcCompat="@drawable/megaminx" />
             </LinearLayout>
 
@@ -173,9 +179,10 @@
 
                 <ImageView
                     android:id="@+id/imageViewClock"
-                    android:layout_width="100sp"
+                    android:layout_width="0dp"
                     android:layout_height="100sp"
                     android:layout_weight="1"
+                    android:contentDescription="@string/todo"
                     app:srcCompat="@drawable/clock" />
 
                 <Button
@@ -185,7 +192,7 @@
                     android:backgroundTint="#1e0eed"
                     android:fontFamily="sans-serif-light"
                     android:onClick="loadNewIntent"
-                    android:text="Magic Clock"
+                    android:text="@string/magic_clock"
                     android:textColor="@color/white"
                     android:textSize="20sp" />
             </LinearLayout>

@@ -45,7 +45,7 @@
 
                 <ImageView
                     android:id="@+id/imageView2x2"
-                    android:layout_width="80sp"
+                    android:layout_width="0dp"
                     android:layout_height="80sp"
                     android:layout_weight="1"
                     android:contentDescription="@string/todo"
@@ -90,10 +90,10 @@
 
                 <ImageView
                     android:id="@+id/imageView3x3"
-                    android:layout_width="80sp"
+                    android:layout_width="0dp"
                     android:layout_height="80sp"
                     android:layout_weight="1"
-                    android:contentDescription="TODO"
+                    android:contentDescription="@string/todo"
                     app:srcCompat="@drawable/_x3" />
             </LinearLayout>
 
@@ -112,10 +112,10 @@
 
                 <ImageView
                     android:id="@+id/imageView4x4"
-                    android:layout_width="90sp"
+                    android:layout_width="0dp"
                     android:layout_height="90sp"
                     android:layout_weight="1"
-                    android:contentDescription="TODO"
+                    android:contentDescription="@string/todo"
                     app:srcCompat="@drawable/_x4" />
 
                 <Button
@@ -152,14 +152,15 @@
                     android:onClick="loadNewIntent"
                     android:text="@string/_5x5x5"
                     android:textColor="@color/white"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    tools:ignore="TextContrastCheck" />
 
                 <ImageView
                     android:id="@+id/imageView5x5"
-                    android:layout_width="90sp"
+                    android:layout_width="0dp"
                     android:layout_height="90sp"
                     android:layout_weight="1"
-                    android:contentDescription="TODO"
+                    android:contentDescription="@string/todo"
                     app:srcCompat="@drawable/_x5" />
             </LinearLayout>
 
@@ -178,10 +179,10 @@
 
                 <ImageView
                     android:id="@+id/imageView6x6"
-                    android:layout_width="100sp"
+                    android:layout_width="0dp"
                     android:layout_height="100sp"
                     android:layout_weight="1"
-                    android:contentDescription="TODO"
+                    android:contentDescription="@string/todo"
                     app:srcCompat="@drawable/_x6" />
 
                 <Button
@@ -193,7 +194,8 @@
                     android:onClick="loadNewIntent"
                     android:text="@string/_6x6x6"
                     android:textColor="@color/black"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    tools:ignore="TextContrastCheck" />
             </LinearLayout>
 
             <Space
@@ -218,14 +220,15 @@
                     android:onClick="loadNewIntent"
                     android:text="@string/_7x7x7"
                     android:textColor="@color/black"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    tools:ignore="TextContrastCheck" />
 
                 <ImageView
                     android:id="@+id/imageView7x7"
-                    android:layout_width="100sp"
+                    android:layout_width="0dp"
                     android:layout_height="100sp"
                     android:layout_weight="1"
-                    android:contentDescription="TODO"
+                    android:contentDescription="@string/todo"
                     app:srcCompat="@drawable/_x7" />
             </LinearLayout>
 
