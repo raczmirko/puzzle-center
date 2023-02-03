@@ -42,17 +42,18 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/button"
+                    android:id="@+id/buttonVoid"
                     android:layout_width="160sp"
                     android:layout_height="match_parent"
                     android:backgroundTint="#35aa12"
                     android:fontFamily="sans-serif-light"
+                    android:onClick="loadNewIntent"
                     android:text="Void Cube"
                     android:textColor="@color/white"
                     android:textSize="20sp" />
 
                 <ImageView
-                    android:id="@+id/imageView2"
+                    android:id="@+id/imageViewVoid"
                     android:layout_width="100sp"
                     android:layout_height="100sp"
                     android:layout_weight="1"
@@ -70,18 +71,19 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/imageView3"
+                    android:id="@+id/imageViewSuperIvy"
                     android:layout_width="100sp"
                     android:layout_height="100sp"
                     android:layout_weight="1"
                     app:srcCompat="@drawable/superivy" />
 
                 <Button
-                    android:id="@+id/button2"
+                    android:id="@+id/buttonSuperIvy"
                     android:layout_width="160sp"
                     android:layout_height="match_parent"
                     android:backgroundTint="#ff9400"
                     android:fontFamily="sans-serif-light"
+                    android:onClick="loadNewIntent"
                     android:text="Super Ivy Cube"
                     android:textColor="@color/white"
                     android:textSize="20sp" />
@@ -98,17 +100,18 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/button3"
+                    android:id="@+id/buttonPentacle"
                     android:layout_width="160sp"
                     android:layout_height="match_parent"
                     android:backgroundTint="#ffec04"
                     android:fontFamily="sans-serif-light"
+                    android:onClick="loadNewIntent"
                     android:text="Pentacle Cube"
                     android:textColor="@color/black"
                     android:textSize="20sp" />
 
                 <ImageView
-                    android:id="@+id/imageView7"
+                    android:id="@+id/imageViewPentacle"
                     android:layout_width="100sp"
                     android:layout_height="100sp"
                     android:layout_weight="1"
@@ -126,18 +129,19 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/imageView4"
+                    android:id="@+id/imageView2x2Pyraminx"
                     android:layout_width="100sp"
                     android:layout_height="100sp"
                     android:layout_weight="1"
                     app:srcCompat="@drawable/_x2pyraminx" />
 
                 <Button
-                    android:id="@+id/button4"
+                    android:id="@+id/button2x2Pyraminx"
                     android:layout_width="160sp"
                     android:layout_height="match_parent"
                     android:backgroundTint="#35aa12"
                     android:fontFamily="sans-serif-light"
+                    android:onClick="loadNewIntent"
                     android:text="2x2 Pyraminx"
                     android:textColor="@color/white"
                     android:textSize="20sp" />
@@ -154,17 +158,18 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/button5"
+                    android:id="@+id/button2x2x4"
                     android:layout_width="160sp"
                     android:layout_height="match_parent"
                     android:backgroundTint="#d40b0b"
                     android:fontFamily="sans-serif-light"
+                    android:onClick="loadNewIntent"
                     android:text="2x2x4"
                     android:textColor="@color/white"
                     android:textSize="20sp" />
 
                 <ImageView
-                    android:id="@+id/imageView5"
+                    android:id="@+id/imageView2x2x4"
                     android:layout_width="100sp"
                     android:layout_height="100sp"
                     android:layout_weight="1"
@@ -183,18 +188,19 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/imageView6"
+                    android:id="@+id/imageViewMasterPyraminx"
                     android:layout_width="100sp"
                     android:layout_height="100sp"
                     android:layout_weight="1"
                     app:srcCompat="@drawable/masterpyraminx" />
 
                 <Button
-                    android:id="@+id/button6"
+                    android:id="@+id/buttonMasterPyraminx"
                     android:layout_width="160sp"
                     android:layout_height="match_parent"
                     android:backgroundTint="#1e0eed"
                     android:fontFamily="sans-serif-light"
+                    android:onClick="loadNewIntent"
                     android:text="Master Pyraminx"
                     android:textColor="@color/white"
                     android:textSize="20sp" />

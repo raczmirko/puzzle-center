@@ -56,6 +56,7 @@
                     android:layout_height="match_parent"
                     android:backgroundTint="#35aa12"
                     android:fontFamily="sans-serif-light"
+                    android:onClick="loadNewIntent"
                     android:text="Skewb"
                     android:textColor="@color/black"
                     android:textSize="20sp" />
@@ -80,6 +81,7 @@
                     android:layout_height="match_parent"
                     android:backgroundTint="#ff9400"
                     android:fontFamily="sans-serif-light"
+                    android:onClick="loadNewIntent"
                     android:text="Square-1"
                     android:textColor="@color/black"
                     android:textSize="20sp" />
@@ -118,6 +120,7 @@
                     android:layout_height="match_parent"
                     android:backgroundTint="#ffec04"
                     android:fontFamily="sans-serif-light"
+                    android:onClick="loadNewIntent"
                     android:text="Pyraminx"
                     android:textColor="@color/black"
                     android:textSize="20sp" />
@@ -142,6 +145,7 @@
                     android:layout_height="match_parent"
                     android:backgroundTint="#d40b0b"
                     android:fontFamily="sans-serif-light"
+                    android:onClick="loadNewIntent"
                     android:text="Megaminx"
                     android:textColor="@color/white"
                     android:textSize="20sp" />
@@ -180,6 +184,7 @@
                     android:layout_height="match_parent"
                     android:backgroundTint="#1e0eed"
                     android:fontFamily="sans-serif-light"
+                    android:onClick="loadNewIntent"
                     android:text="Magic Clock"
                     android:textColor="@color/white"
                     android:textSize="20sp" />
