@@ -569,7 +569,7 @@
                     <TextView
                         android:id="@+id/textView23"
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:fontFamily="sans-serif"
                         android:gravity="center"
                         android:text="Lastly we have to permutate last layer (PLL). There can be 2 cases, but we can use the same algorithm:"
