@@ -47,6 +47,38 @@ public class TimerActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_timer);
 
+//        buttonStartTimer = findViewById(R.id.buttonStartTimer);
+//        screen = findViewById(R.id.wholeScreenLayout);
+//        puzzleTypeSpinner = findViewById(R.id.spinner);
+//        linearLayout = findViewById(R.id.linearLayoutScreen);
+//        listOfTimes = findViewById(R.id.listViewTimes);
+//        textViewTime = findViewById(R.id.textViewTime);
+//        textViewPuzzleType = findViewById(R.id.textViewPuzzleType);
+//
+//        listAdapter = new ArrayAdapter<>(this,R.layout.list_layout);
+//        listOfTimes.setAdapter(listAdapter);
+//
+//        spinnerAdapter = ArrayAdapter.createFromResource(this, R.array.spinnerPuzzleType, android.R.layout.simple_spinner_item);
+//        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        puzzleTypeSpinner.setAdapter(spinnerAdapter);
+//        puzzleTypeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//                if(!timerIsRunning){
+//                    currentPuzzle = parent.getItemAtPosition(position).toString();
+//                    currentPuzzleID = position;
+//                    ((TextView) parent.getChildAt(0)).setTextColor(Color.WHITE);
+//                    ((TextView) parent.getChildAt(0)).setTextSize(20);
+//                }
+//            }
+//            @Override
+//            public void onNothingSelected(AdapterView<?> parent) {
+//            }
+//        });
+        initUI();
+    }
+
+    void initUI(){
         buttonStartTimer = findViewById(R.id.buttonStartTimer);
         screen = findViewById(R.id.wholeScreenLayout);
         puzzleTypeSpinner = findViewById(R.id.spinner);
@@ -55,11 +87,8 @@ public class TimerActivity extends AppCompatActivity{
         textViewTime = findViewById(R.id.textViewTime);
         textViewPuzzleType = findViewById(R.id.textViewPuzzleType);
 
-        //Since landscape mode doesn't have a list we only set adapter etc. if in portrait mode
-        if(this.getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT){
-            listAdapter = new ArrayAdapter<>(this,R.layout.list_layout);
-            listOfTimes.setAdapter(listAdapter);
-        }
+        listAdapter = new ArrayAdapter<>(this,R.layout.list_layout);
+        listOfTimes.setAdapter(listAdapter);
 
         spinnerAdapter = ArrayAdapter.createFromResource(this, R.array.spinnerPuzzleType, android.R.layout.simple_spinner_item);
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -78,7 +107,20 @@ public class TimerActivity extends AppCompatActivity{
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
+    }
 
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        int newOrientation = newConfig.orientation;
+        if (newOrientation == Configuration.ORIENTATION_LANDSCAPE) {
+            // Do certain things when the user has switched to landscape.
+            setContentView(R.layout.activity_timer);
+            initUI();
+        }else{
+            setContentView(R.layout.activity_timer);
+            initUI();
+        }
     }
 
     @Override
@@ -134,11 +176,22 @@ public class TimerActivity extends AppCompatActivity{
             addTimeToList();
             puzzleTypeSpinner.setEnabled(true);
             //Color.GREEN was too bright so had to grab another green
-            buttonStartTimer.setBackgroundColor(Color.parseColor("#ff669900"));
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    buttonStartTimer.setBackgroundColor(Color.parseColor("#ff669900"));
+                }
+            });
         }else{
             startTimerThread();
             puzzleTypeSpinner.setEnabled(false);
-            buttonStartTimer.setBackgroundColor(Color.RED);
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        buttonStartTimer.setBackgroundColor(Color.RED);
+                    }
+                });
+
         }
     }
 
@@ -170,10 +223,8 @@ public class TimerActivity extends AppCompatActivity{
     }
 
     public void addTimeToList(){
-        if(this.getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
-            String messageToInsert = SDF.format(new Date()) + "  |  " + textViewTime.getText().toString() + "  |  " + puzzleTypeSpinner.getSelectedItem().toString();
-            listAdapter.insert(messageToInsert, 0);
-        }
+        String messageToInsert = SDF.format(new Date()) + "  |  " + textViewTime.getText().toString() + "  |  " + puzzleTypeSpinner.getSelectedItem().toString();
+        listAdapter.insert(messageToInsert, 0);
     }
 
     public void addTimeToCorrespondingMap(int millis){
