@@ -21,6 +21,23 @@
     <string name="_2x2_pyraminx">2x2 Pyraminx</string>
     <string name="_2x2x4">2x2x4</string>
     <string name="master_pyraminx">Master Pyraminx</string>
+    <string name="friedrich_method">Friedrich method</string>
+    <string name="second">2.</string>
+    <string name="antisune">AntiSune</string>
+    <string name="sune">Sune</string>
+    <string name="not_tutorial_note">Note: This is by no means a complete tutorial. It\'s rather a collection of useful algorithms I personally use and tips. Hold the cube the same way as on the top-down views.</string>
+    <string name="dead_man">Dead Man</string>
+    <string name="h_permutation">H-permutation</string>
+    <string name="l_permutation">L-permutation</string>
+    <string name="t_permutation">T-permutation</string>
+    <string name="u_permutation">U-permutation</string>
+    <string name="first">1.</string>
+    <string name="_2x2_fingertrick">This is a fingertrick, hold bottom left front-back with left hand, bottom right front-back with right hand, twist R2 U2 with right hand, flick R with left hand from back, and reverse back.</string>
+    <string name="third">3.</string>
+    <string name="_2x2_second_step">Solve the face opposite to the one you just solved. There are 7 cases, use the appropriate algorithm:</string>
+    <string name="_2x2_first_step">Solve any side intuitively in a way that the pieces are well permuted (the sides match too, not only the solved face).</string>
+    <string name="_2x2_pll_2">There are two pieces in diagonal that are in place. Hold yellow face towards you, then execute one. This will lead to the previous case, which needs this algorithm executed once more.</string>
+    <string name="_2x2_pll_1">There are two adjacent pieces in their places, and two pieces need to be swapped. Hold yellow face towards you, then execute once:</string>
     <string-array name="spinnerPuzzleType">
         <item>2x2x2</item>
         <item>3x3x3</item>
