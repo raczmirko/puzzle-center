@@ -6,4 +6,201 @@
     android:layout_height="match_parent"
     tools:context=".NonWCAMenuActivity">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:text="Non WCA Puzzles"
+                android:textAlignment="center"
+                android:textSize="34sp" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="30sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="160sp"
+                    android:layout_height="match_parent"
+                    android:backgroundTint="#35aa12"
+                    android:fontFamily="sans-serif-light"
+                    android:text="Void Cube"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="100sp"
+                    android:layout_height="100sp"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/resource_void" />
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="30sp"
+                android:layout_weight="1" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="100sp"
+                    android:layout_height="100sp"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/superivy" />
+
+                <Button
+                    android:id="@+id/button2"
+                    android:layout_width="160sp"
+                    android:layout_height="match_parent"
+                    android:backgroundTint="#ff9400"
+                    android:fontFamily="sans-serif-light"
+                    android:text="Super Ivy Cube"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="30sp"
+                android:layout_weight="1" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/button3"
+                    android:layout_width="160sp"
+                    android:layout_height="match_parent"
+                    android:backgroundTint="#ffec04"
+                    android:fontFamily="sans-serif-light"
+                    android:text="Pentacle Cube"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+                <ImageView
+                    android:id="@+id/imageView7"
+                    android:layout_width="100sp"
+                    android:layout_height="100sp"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/pentacle" />
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="30sp"
+                android:layout_weight="1" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageView4"
+                    android:layout_width="100sp"
+                    android:layout_height="100sp"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/_x2pyraminx" />
+
+                <Button
+                    android:id="@+id/button4"
+                    android:layout_width="160sp"
+                    android:layout_height="match_parent"
+                    android:backgroundTint="#35aa12"
+                    android:fontFamily="sans-serif-light"
+                    android:text="2x2 Pyraminx"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="30sp"
+                android:layout_weight="1" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/button5"
+                    android:layout_width="160sp"
+                    android:layout_height="match_parent"
+                    android:backgroundTint="#d40b0b"
+                    android:fontFamily="sans-serif-light"
+                    android:text="2x2x4"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+
+                <ImageView
+                    android:id="@+id/imageView5"
+                    android:layout_width="100sp"
+                    android:layout_height="100sp"
+                    android:layout_weight="1"
+                    android:rotation="90"
+                    app:srcCompat="@drawable/_x2x4" />
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="30sp"
+                android:layout_weight="1" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageView6"
+                    android:layout_width="100sp"
+                    android:layout_height="100sp"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/masterpyraminx" />
+
+                <Button
+                    android:id="@+id/button6"
+                    android:layout_width="160sp"
+                    android:layout_height="match_parent"
+                    android:backgroundTint="#1e0eed"
+                    android:fontFamily="sans-serif-light"
+                    android:text="Master Pyraminx"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
