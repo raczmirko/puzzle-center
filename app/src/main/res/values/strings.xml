@@ -27,10 +27,6 @@
     <string name="sune"><b>Sune</b>\n\nL\' U2 L U L\' U L</string>
     <string name="not_tutorial_note">Note: This is by no means a complete tutorial. It\'s rather a collection of useful algorithms I personally use and tips. Hold the cube (yellow side up) the same way as on the top-down views, except if told otherwise.</string>
     <string name="dead_man_2x2"><b>Dead Man</b>\n\nF (R U R\’ U\’)  (R U R\’ U\’) F\’</string>
-    <string name="h_permutation_2x2"><b>H-permutation</b>\n\n R2 U2 R U2 R2\n\nThis is a fingertrick, hold bottom left front-back with left hand, bottom right front-back with right hand, twist R2 U2 with right hand, flick R with left hand from back, and reverse back.</string>
-    <string name="l_permutation_2x2"><b>L-permutation</b>\n\n F\’ (R U R\’ U\’) L\’ U L</string>
-    <string name="t_permutation_2x2"><b>T-permutation</b>\n\n R U R\’ U\’ R\’ F  R\’ F\’</string>
-    <string name="u_permutation_2x2"><b>U-permutation</b>\n\n F (R U R\’ U\’)  (R U R\’ U\’)</string>
     <string name="first">1.</string>
     <string name="third">3.</string>
     <string name="_2x2_step_1"><b>First side</b>\n\nSolve any side intuitively in a way that the pieces are well permuted (the sides match too, not only the solved face).</string>
@@ -42,6 +38,27 @@
     <string name="_3x3_step_1"><b>Cross</b>\n\nSolve any of the crosses (most people do the white cross, but being color-neutral can be faster), that is any of the center pieces matching with the edge pieces in a way that the edge pieces also match with the centers of each side accordingly.\n\nUsually the cross should face the bottom so we avoid unnecessary rotations before the second step.</string>
     <string name="_3x3_step_2"><b>F2L (First Two Layers)</b>\n\nUsing the opposite layer than your cross, form corner-edge pairs and insert them to their places one by one, completing the first two layers at the same time!</string>
     <string name="_3x3_step_3"><b>Last Cross</b>\n\nOnce the first two layers are done we have to solve the last face\'s cross.\n\nThere are 3 possibilites:</string>
+    <string name="alg_2x2_h"><b>H-permutation</b>\n\n R2 U2 R U2 R2\n\nThis is a fingertrick, hold bottom left front-back with left hand, bottom right front-back with right hand, twist R2 U2 with right hand, flick R with left hand from back, and reverse back.</string>
+    <string name="alg_2x2_l"><b>L-perm / Bowtie</b>\n\n F\’ (R U R\’ U\’) L\’ U L</string>
+    <string name="alg_2x2_t"><b>T-permutation</b>\n\n R U R\’ U\’ R\’ F  R\’ F\’</string>
+    <string name="alg_2x2_u"><b>U-permutation</b>\n\n F (R U R\’ U\’)  (R U R\’ U\’)</string>
+    <string name="alg_3x3_superman"><b>Superman / Headlights</b>\n\nR2 D (R\' U2 R) D\' (R\' U2 R\')</string>
+    <string name="alg_3x3_T"><b>T-permutation</b>\n\nL\' U\' L U R U\' L\' U M\'</string>
+    <string name="alg_3x3_deadman"><b>Dead man</b>\n\nR U2 (R2 U\' R2 U\') (R2 U2 R)</string>
+    <string name="alg_3x3_bowtie"><b>L-perm / Bowtie</b>\n\nF\' (r U R\' U\') (r\' F R)</string>
+    <string name="alg_3x3_h"><b>H-perm</b>\n\nF (R U R\' U\') (R U R\' U\') (R U R\' U\') F\'</string>
+    <string name="fourth">4.</string>
+    <string name="_3x3_step_4"><b>OLL</b>\n\nNext step is to orient the last layer. Just like on the 2x2 there are 7 cases, most of which uses the same algorithm as the 2x2:</string>
+    <string name="alg_3x3_dot"><b>Dot</b>\n\nM U (R U R\' U\') M2\' (U R U\' r\') </string>
+    <string name="alg_3x3_l"><b>L-shape</b>\n\nF (R U R\' U\') (R U R\' U\') F\'</string>
+    <string name="alg_3x3_line"><b>Line</b>\n\nF (R U R\' U\') F\'</string>
+    <string name="fifth">5.</string>
+    <string name="sixth">6.</string>
+    <string name="_3x3_step_6"><b>Permutate last layer edges</b>\n\nThere are 3 possible cases here:</string>
+    <string name="alg_3x3_pll4"><b>U-perms</b>\n\nFace the correct edge! Start by doing an M2 and then there are 2 cases. The center that faces you matches the edge piece on the ___ side:\n\n<b>LEFT</b>: U\' M\' U2 M U\' M2\n\n<b>RIGHT</b>: U M\' U2 M U M2</string>
+    <string name="alg_3x3_pll3"><b>Z-perm / Diagonal swap</b>\n\nHold the cube so that the F edge needs to be swapped with the L one (and the R with B)!\n\n(M2 U\' M2 U\') M\' (U2 M2 U2) M\'</string>
+    <string name="alg_3x3_pll5"><b>H-perm</b>\n\nSwapping F-B and L-R.\n\n(M2 U M2) U2 (M2 U M2)</string>
+    <string name="_3x3_step_5"><b>PLL</b>\n\nWe have to permutate the last layer corners. There can be 2 cases, but we can use the same algorithm:</string>
     <string-array name="spinnerPuzzleType">
         <item>2x2x2</item>
         <item>3x3x3</item>

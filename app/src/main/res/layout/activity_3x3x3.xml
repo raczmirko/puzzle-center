@@ -209,11 +209,163 @@
                     android:padding="15dp">
 
                     <ImageView
+                        android:id="@+id/imageView12"
+                        android:layout_width="100sp"
+                        android:layout_height="100sp"
+                        android:contentDescription="@string/todo"
+                        app:srcCompat="@drawable/_x3_dot" />
+
+                    <TextView
+                        android:id="@+id/textView18"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif"
+                        android:text="@string/alg_3x3_dot"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="20sp" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20sp" />
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@android:color/holo_orange_dark"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="15dp">
+
+                    <ImageView
+                        android:id="@+id/imageView13"
+                        android:layout_width="100sp"
+                        android:layout_height="100sp"
+                        android:contentDescription="@string/todo"
+                        app:srcCompat="@drawable/_x3_l" />
+
+                    <TextView
+                        android:id="@+id/textView19"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif"
+                        android:text="@string/alg_3x3_l"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="20sp" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20sp" />
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@android:color/holo_orange_dark"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="15dp">
+
+                    <ImageView
+                        android:id="@+id/imageView14"
+                        android:layout_width="100sp"
+                        android:layout_height="100sp"
+                        android:contentDescription="@string/todo"
+                        app:srcCompat="@drawable/_x3_line" />
+
+                    <TextView
+                        android:id="@+id/textView20"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif"
+                        android:text="@string/alg_3x3_line"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="20sp" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20sp" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:cardBackgroundColor="@android:color/holo_orange_dark"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="15dp">
+
+                    <TextView
+                        android:id="@+id/textView16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="@string/fourth"
+                        android:textColor="@color/black"
+                        android:textSize="48sp" />
+
+                    <Space
+                        android:layout_width="11dp"
+                        android:layout_height="match_parent" />
+
+                    <TextView
+                        android:id="@+id/textView17"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif"
+                        android:gravity="center"
+                        android:text="@string/_3x3_step_4"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20sp" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@android:color/holo_orange_dark"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="15dp">
+
+                    <ImageView
                         android:id="@+id/imageView3"
                         android:layout_width="100sp"
                         android:layout_height="100sp"
                         android:contentDescription="@string/todo"
-                        app:srcCompat="@drawable/__1" />
+                        app:srcCompat="@drawable/_x3_antisune" />
 
                     <TextView
                         android:id="@+id/textView27"
@@ -250,7 +402,7 @@
                         android:layout_width="100sp"
                         android:layout_height="100sp"
                         android:contentDescription="@string/todo"
-                        app:srcCompat="@drawable/__2" />
+                        app:srcCompat="@drawable/_x3_sune" />
 
                     <TextView
                         android:id="@+id/textView29"
@@ -286,14 +438,14 @@
                         android:layout_width="100sp"
                         android:layout_height="100sp"
                         android:contentDescription="@string/todo"
-                        app:srcCompat="@drawable/_x2_3_" />
+                        app:srcCompat="@drawable/_x3_superman" />
 
                     <TextView
                         android:id="@+id/textView31"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif"
-                        android:text="@string/u_permutation_2x2"
+                        android:text="@string/alg_3x3_superman"
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="20sp" />
@@ -323,14 +475,14 @@
                         android:layout_width="100sp"
                         android:layout_height="100sp"
                         android:contentDescription="@string/todo"
-                        app:srcCompat="@drawable/_x2_4_" />
+                        app:srcCompat="@drawable/_x3_t" />
 
                     <TextView
                         android:id="@+id/textView33"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif"
-                        android:text="@string/t_permutation_2x2"
+                        android:text="@string/alg_3x3_T"
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="20sp" />
@@ -360,14 +512,14 @@
                         android:layout_width="100sp"
                         android:layout_height="100sp"
                         android:contentDescription="@string/todo"
-                        app:srcCompat="@drawable/_x2_5_deadman" />
+                        app:srcCompat="@drawable/_x3_deadman" />
 
                     <TextView
                         android:id="@+id/textView37"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif"
-                        android:text="@string/dead_man_2x2"
+                        android:text="@string/alg_3x3_deadman"
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="20sp" />
@@ -397,14 +549,14 @@
                         android:layout_width="100sp"
                         android:layout_height="100sp"
                         android:contentDescription="@string/todo"
-                        app:srcCompat="@drawable/_x2_7_l" />
+                        app:srcCompat="@drawable/_x3_bowtie" />
 
                     <TextView
                         android:id="@+id/textView39"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif"
-                        android:text="@string/l_permutation_2x2"
+                        android:text="@string/alg_3x3_bowtie"
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="20sp" />
@@ -434,14 +586,14 @@
                         android:layout_width="100sp"
                         android:layout_height="100sp"
                         android:contentDescription="@string/todo"
-                        app:srcCompat="@drawable/_x2_6_h" />
+                        app:srcCompat="@drawable/_x3_h" />
 
                     <TextView
                         android:id="@+id/textView35"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif"
-                        android:text="@string/h_permutation_2x2"
+                        android:text="@string/alg_3x3_h"
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="20sp" />
@@ -472,7 +624,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-medium"
-                        android:text="@string/third"
+                        android:text="@string/fifth"
                         android:textColor="@color/black"
                         android:textSize="48sp" />
 
@@ -486,7 +638,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif"
                         android:gravity="center"
-                        android:text="@string/_2x2_step_3"
+                        android:text="@string/_3x3_step_5"
                         android:textColor="@color/black"
                         android:textSize="20sp" />
                 </LinearLayout>
@@ -515,7 +667,7 @@
                         android:layout_width="100sp"
                         android:layout_height="100sp"
                         android:contentDescription="@string/todo"
-                        app:srcCompat="@drawable/_x2_pll1" />
+                        app:srcCompat="@drawable/_x3_pll1" />
 
                     <TextView
                         android:id="@+id/textView42"
@@ -553,7 +705,7 @@
                         android:layout_width="100sp"
                         android:layout_height="100sp"
                         android:contentDescription="@string/todo"
-                        app:srcCompat="@drawable/_x2_pll2" />
+                        app:srcCompat="@drawable/_x3_pll2" />
 
                     <TextView
                         android:id="@+id/textView44"
@@ -567,6 +719,161 @@
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20sp" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:cardBackgroundColor="@android:color/holo_orange_dark"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:padding="15dp">
+
+                    <TextView
+                        android:id="@+id/textView24"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="@string/sixth"
+                        android:textColor="@color/black"
+                        android:textSize="48sp" />
+
+                    <Space
+                        android:layout_width="5sp"
+                        android:layout_height="match_parent" />
+
+                    <TextView
+                        android:id="@+id/textView25"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif"
+                        android:gravity="center"
+                        android:text="@string/_3x3_step_6"
+                        android:textColor="@color/black"
+                        android:textSize="20sp" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20sp" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:cardBackgroundColor="@android:color/holo_orange_dark"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:padding="15dp">
+
+                    <ImageView
+                        android:id="@+id/imageView15"
+                        android:layout_width="100sp"
+                        android:layout_height="100sp"
+                        android:contentDescription="@string/todo"
+                        app:srcCompat="@drawable/_x3_pll4" />
+
+                    <TextView
+                        android:id="@+id/textView36"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif"
+                        android:text="@string/alg_3x3_pll4"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="20sp" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20sp" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:cardBackgroundColor="@android:color/holo_orange_dark"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:padding="15dp">
+
+                    <ImageView
+                        android:id="@+id/imageView16"
+                        android:layout_width="100sp"
+                        android:layout_height="100sp"
+                        android:contentDescription="@string/todo"
+                        app:srcCompat="@drawable/_x3_pll5" />
+
+                    <TextView
+                        android:id="@+id/textView38"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif"
+                        android:text="@string/alg_3x3_pll3"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="20sp" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20sp" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:cardBackgroundColor="@android:color/holo_orange_dark"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:padding="15dp">
+
+                    <ImageView
+                        android:id="@+id/imageView17"
+                        android:layout_width="100sp"
+                        android:layout_height="100sp"
+                        android:contentDescription="@string/todo"
+                        app:srcCompat="@drawable/_x3_pll3" />
+
+                    <TextView
+                        android:id="@+id/textView32"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif"
+                        android:text="@string/alg_3x3_pll5"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="20sp" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
 
 
         </LinearLayout>

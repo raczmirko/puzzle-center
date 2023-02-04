@@ -250,7 +250,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif"
-                        android:text="@string/u_permutation_2x2"
+                        android:text="@string/alg_2x2_u"
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="20sp" />
@@ -287,7 +287,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif"
-                        android:text="@string/t_permutation_2x2"
+                        android:text="@string/alg_2x2_t"
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="20sp" />
@@ -361,7 +361,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif"
-                        android:text="@string/l_permutation_2x2"
+                        android:text="@string/alg_2x2_l"
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="20sp" />
@@ -398,7 +398,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif"
-                        android:text="@string/h_permutation_2x2"
+                        android:text="@string/alg_2x2_h"
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="20sp" />
