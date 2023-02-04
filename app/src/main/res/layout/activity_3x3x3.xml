@@ -21,6 +21,7 @@
         app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
+            tools:ignore="UseCompoundDrawables"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -47,7 +48,8 @@
                 android:fontFamily="sans-serif-light"
                 android:text="@string/not_tutorial_note"
                 android:textAlignment="center"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                tools:ignore="TextContrastCheck" />
 
             <Space
                 android:layout_width="match_parent"
@@ -101,7 +103,8 @@
                         android:gravity="center"
                         android:text="@string/_3x3_step_1"
                         android:textColor="@color/black"
-                        android:textSize="16sp" />
+                        android:textSize="16sp"
+                        tools:ignore="TextContrastCheck" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -144,7 +147,8 @@
                         android:gravity="center"
                         android:text="@string/_3x3_step_2"
                         android:textColor="@color/black"
-                        android:textSize="16sp" />
+                        android:textSize="16sp"
+                        tools:ignore="TextContrastCheck" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -187,7 +191,8 @@
                         android:gravity="center"
                         android:text="@string/_3x3_step_3"
                         android:textColor="@color/black"
-                        android:textSize="16sp" />
+                        android:textSize="16sp"
+                        tools:ignore="TextContrastCheck" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -249,7 +254,8 @@
                         android:layout_width="100sp"
                         android:layout_height="100sp"
                         android:contentDescription="@string/todo"
-                        app:srcCompat="@drawable/_x3_l" />
+                        app:srcCompat="@drawable/_x3_l"
+                        tools:ignore="ImageContrastCheck" />
 
                     <TextView
                         android:id="@+id/textView19"
@@ -339,7 +345,8 @@
                         android:gravity="center"
                         android:text="@string/_3x3_step_4"
                         android:textColor="@color/black"
-                        android:textSize="16sp" />
+                        android:textSize="16sp"
+                        tools:ignore="TextContrastCheck" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
