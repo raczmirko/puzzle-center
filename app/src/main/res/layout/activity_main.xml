@@ -45,9 +45,8 @@
                     android:id="@+id/textViewMainTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:fontFamily="sans-serif-condensed-medium"
-                    android:text="Puzzle Center"
+                    android:text="@string/puzzle_center"
                     android:textAlignment="center"
                     android:textSize="34sp" />
 
@@ -55,9 +54,8 @@
                     android:id="@+id/textViewMainTitle2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:fontFamily="cursive"
-                    android:text="by Mirkó Rácz"
+                    android:text="@string/author"
                     android:textAlignment="center"
                     android:textSize="30sp" />
             </LinearLayout>
@@ -82,7 +80,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-light"
-                    android:text="Utilities"
+                    android:text="@string/utilities"
                     android:textAlignment="center"
                     android:textSize="24sp" />
 
@@ -96,7 +94,7 @@
                     android:layout_height="80sp"
                     android:backgroundTint="@android:color/holo_green_dark"
                     android:onClick="loadSelectedPage"
-                    android:text="Solve timer"
+                    android:text="@string/solve_timer"
                     tools:ignore="TextContrastCheck" />
 
                 <Button
@@ -105,7 +103,7 @@
                     android:layout_height="80sp"
                     android:backgroundTint="@android:color/holo_red_dark"
                     android:onClick="loadSelectedPage"
-                    android:text="Records"
+                    android:text="@string/records"
                     android:textColor="@color/white" />
 
                 <Space
@@ -117,7 +115,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-light"
-                    android:text="Puzzle Algorithms By Category"
+                    android:text="@string/puzzle_algorithms_by_category"
                     android:textAlignment="center"
                     android:textSize="24sp" />
 
@@ -135,7 +133,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="48dp"
                         android:fontFamily="sans-serif-light"
-                        android:text="Only Algorithms, No tutorial!" />
+                        android:text="@string/only_algorithms_no_tutorial" />
                 </LinearLayout>
 
                 <Button
@@ -144,7 +142,7 @@
                     android:layout_height="60sp"
                     android:backgroundTint="@android:color/holo_green_dark"
                     android:onClick="loadSelectedPage"
-                    android:text="N x N x N cubes"
+                    android:text="@string/n_x_n_x_n_cubes"
                     tools:ignore="TextContrastCheck" />
 
                 <Button
@@ -153,7 +151,7 @@
                     android:layout_height="60sp"
                     android:backgroundTint="@android:color/holo_red_dark"
                     android:onClick="loadSelectedPage"
-                    android:text="other WCA puzzles"
+                    android:text="@string/other_wca_puzzles"
                     android:textColor="@color/white" />
 
                 <Button
@@ -162,7 +160,7 @@
                     android:layout_height="60sp"
                     android:backgroundTint="@android:color/holo_green_dark"
                     android:onClick="loadSelectedPage"
-                    android:text="non wca puzzles"
+                    android:text="@string/non_wca_puzzles"
                     tools:ignore="TextContrastCheck" />
 
             </LinearLayout>

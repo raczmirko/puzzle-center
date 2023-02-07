@@ -71,6 +71,14 @@
     <string name="alg_4x4_pllparity"><b>PLL parity</b>\n\n2R2 U2 2R2 Uw2 2R2 Uw2</string>
     <string name="on">on</string>
     <string name="off">off</string>
+    <string name="puzzle_center">Puzzle Center</string>
+    <string name="author">by Mirkó Rácz</string>
+    <string name="utilities">Utilities</string>
+    <string name="solve_timer">Solve timer</string>
+    <string name="records">Records</string>
+    <string name="puzzle_algorithms_by_category">Puzzle Algorithms By Category</string>
+    <string name="only_algorithms_no_tutorial">Only Algorithms, No tutorial!</string>
+    <string name="other_wca_puzzles">other WCA puzzles</string>
     <string-array name="spinnerPuzzleType">
         <item>2x2x2</item>
         <item>3x3x3</item>
