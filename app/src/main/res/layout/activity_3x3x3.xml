@@ -69,9 +69,11 @@
                 android:layout_height="11sp" />
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/cVStep1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginBottom="15dp"
                 app:cardBackgroundColor="@android:color/holo_orange_dark"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="10dp">
@@ -108,14 +110,12 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="20sp" />
-
             <androidx.cardview.widget.CardView
+                android:id="@+id/cVStep2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginBottom="15dp"
                 app:cardBackgroundColor="@android:color/holo_orange_dark"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="10dp">
@@ -152,14 +152,12 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="20sp" />
-
             <androidx.cardview.widget.CardView
+                android:id="@+id/cVStep3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginBottom="15dp"
                 app:cardBackgroundColor="@android:color/holo_orange_dark"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="10dp">
@@ -196,13 +194,10 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="20sp" />
-
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
                 app:cardBackgroundColor="@android:color/holo_orange_dark"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="10dp">
@@ -233,12 +228,10 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="20sp" />
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
                 app:cardBackgroundColor="@android:color/holo_orange_dark"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="10dp">
@@ -270,12 +263,10 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="20sp" />
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
                 app:cardBackgroundColor="@android:color/holo_orange_dark"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="10dp">
@@ -306,14 +297,12 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="20sp" />
-
             <androidx.cardview.widget.CardView
+                android:id="@+id/cVStep4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginBottom="15dp"
                 app:cardBackgroundColor="@android:color/holo_orange_dark"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="10dp">
@@ -350,13 +339,10 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="20sp" />
-
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
                 app:cardBackgroundColor="@android:color/holo_orange_dark"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="10dp">
@@ -387,13 +373,10 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="20sp" />
-
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginBottom="15dp"
                 app:cardBackgroundColor="@android:color/holo_orange_dark"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="10dp">
@@ -423,13 +406,10 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="20sp" />
-
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginBottom="15dp"
                 app:cardBackgroundColor="@android:color/holo_orange_dark"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="10dp">
@@ -460,13 +440,10 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="20sp" />
-
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginBottom="15dp"
                 app:cardBackgroundColor="@android:color/holo_orange_dark"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="10dp">
@@ -497,13 +474,10 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="20sp" />
-
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginBottom="15dp"
                 app:cardBackgroundColor="@android:color/holo_orange_dark"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="10dp">
@@ -534,13 +508,10 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="20sp" />
-
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginBottom="15dp"
                 app:cardBackgroundColor="@android:color/holo_orange_dark"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="10dp">
@@ -571,13 +542,10 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="20sp" />
-
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginBottom="15dp"
                 app:cardBackgroundColor="@android:color/holo_orange_dark"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="10dp">
@@ -608,14 +576,12 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="20sp" />
-
             <androidx.cardview.widget.CardView
+                android:id="@+id/cVStep5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginBottom="15dp"
                 app:cardBackgroundColor="@android:color/holo_orange_dark"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="10dp">
@@ -651,14 +617,11 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="20sp" />
-
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
+                android:layout_marginBottom="15dp"
                 app:cardBackgroundColor="@android:color/holo_orange_dark"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="10dp">
@@ -689,14 +652,11 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="20sp" />
-
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
+                android:layout_marginBottom="15dp"
                 app:cardBackgroundColor="@android:color/holo_orange_dark"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="10dp">
@@ -705,7 +665,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:padding="15dp">
+                    android:padding="15dp"
+                    tools:ignore="TooManyViews">
 
                     <ImageView
                         android:id="@+id/imageView11"
@@ -727,14 +688,12 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="20sp" />
-
             <androidx.cardview.widget.CardView
+                android:id="@+id/cVStep6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginBottom="15dp"
                 app:cardBackgroundColor="@android:color/holo_orange_dark"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="10dp">
@@ -770,13 +729,10 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="20sp" />
-
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginBottom="15dp"
                 app:cardBackgroundColor="@android:color/holo_orange_dark"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="10dp">
@@ -807,13 +763,10 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="20sp" />
-
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginBottom="15dp"
                 app:cardBackgroundColor="@android:color/holo_orange_dark"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="10dp">
@@ -844,13 +797,10 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="20sp" />
-
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginBottom="15dp"
                 app:cardBackgroundColor="@android:color/holo_orange_dark"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="10dp">

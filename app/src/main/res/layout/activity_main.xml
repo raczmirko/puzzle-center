@@ -30,9 +30,9 @@
                 android:layout_width="50sp"
                 android:layout_height="100sp"
                 android:layout_weight="1"
+                android:contentDescription="@string/todo"
                 android:textAlignment="center"
-                app:srcCompat="@drawable/puzzlecenterlogo"
-                android:contentDescription="TODO" />
+                app:srcCompat="@drawable/puzzlecenterlogo" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -88,7 +88,7 @@
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="10sp" />
+                    android:layout_height="11sp" />
 
                 <Button
                     android:id="@+id/buttonTimer"
@@ -110,7 +110,7 @@
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="10sp" />
+                    android:layout_height="11sp" />
 
                 <TextView
                     android:id="@+id/textView2"
@@ -123,7 +123,20 @@
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="10sp" />
+                    android:layout_height="11sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <Switch
+                        android:id="@+id/switchOnlyAlgs"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:fontFamily="sans-serif-light"
+                        android:text="Only Algorithms, No tutorial!" />
+                </LinearLayout>
 
                 <Button
                     android:id="@+id/buttonNCubes"

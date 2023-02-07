@@ -2,11 +2,14 @@ package hu.okrim.puzzlecenter;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.Switch;
 
+@SuppressWarnings("rawtypes")
 public class MainActivity extends AppCompatActivity {
 
     Button buttonTimer;
@@ -14,6 +17,8 @@ public class MainActivity extends AppCompatActivity {
     Button buttonNCubes;
     Button buttonWCAPuzzles;
     Button buttonNonWCAPuzzles;
+    @SuppressLint("UseSwitchCompatOrMaterialCode")
+    Switch switchOnlyAlgs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         buttonNCubes = findViewById(R.id.buttonNCubes);
         buttonWCAPuzzles = findViewById(R.id.buttonWCAPuzzles);
         buttonNonWCAPuzzles = findViewById(R.id.buttonNonWCAPuzzles);
+        switchOnlyAlgs = findViewById(R.id.switchOnlyAlgs);
     }
 
     public void loadSelectedPage(android.view.View source){
@@ -49,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Defining which class to load in the new intent
         intent = new Intent(this, classToLoad);
+        intent.putExtra("onlyAlgs", switchOnlyAlgs.isChecked());
         try{
             startActivity(intent);
         }catch(NullPointerException NPE){
