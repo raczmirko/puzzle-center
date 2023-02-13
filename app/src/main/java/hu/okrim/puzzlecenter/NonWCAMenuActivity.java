@@ -51,6 +51,7 @@ public class NonWCAMenuActivity extends AppCompatActivity {
 
         //Defining which class to load in the new intent
         intent = new Intent(this, classToLoad);
+        intent.putExtra("onlyAlgs", getIntent().getExtras().getBoolean("onlyAlgs"));
         try{
             startActivity(intent);
         }catch(NullPointerException NPE){
