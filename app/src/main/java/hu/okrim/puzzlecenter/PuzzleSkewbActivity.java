@@ -9,6 +9,6 @@ public class PuzzleSkewbActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_skewb);
+        setContentView(R.layout.activity_puzzle_skewb);
     }
 }

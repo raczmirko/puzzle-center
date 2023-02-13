@@ -24,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-light"
-            android:text="Records"
+            android:text="@string/records"
             android:textAlignment="center"
             android:textSize="48sp" />
 
@@ -37,9 +37,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-light"
-            android:text="1st"
+            android:text="@string/_1st"
             android:textAlignment="center"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:textStyle="bold|italic" />
 
         <TextView
             android:id="@+id/textViewRecords1stValue"
@@ -59,16 +60,17 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="10sp" />
+            android:layout_height="11sp" />
 
         <TextView
             android:id="@+id/textViewRecords2ndPrompt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-light"
-            android:text="2nd"
+            android:text="@string/_2nd"
             android:textAlignment="center"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:textStyle="bold|italic" />
 
         <TextView
             android:id="@+id/textViewRecords2ndValue"
@@ -88,16 +90,17 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="10sp" />
+            android:layout_height="11sp" />
 
         <TextView
             android:id="@+id/textViewRecords3rdPrompt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-light"
-            android:text="3rd"
+            android:text="@string/_3rd"
             android:textAlignment="center"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:textStyle="bold|italic" />
 
         <TextView
             android:id="@+id/textViewRecords3rdValue"
@@ -117,20 +120,20 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="10sp" />
+            android:layout_height="11sp" />
 
         <TextView
             android:id="@+id/textViewRecordsTitle2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-light"
-            android:text="Category:"
+            android:text="@string/category"
             android:textAlignment="center"
             android:textSize="34sp" />
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="10sp" />
+            android:layout_height="11sp" />
 
         <Spinner
             android:id="@+id/spinnerRecord"

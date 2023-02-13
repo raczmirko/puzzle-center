@@ -1,6 +1,5 @@
 package hu.okrim.puzzlecenter;
 
-import android.app.Activity;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Color;
@@ -112,15 +111,8 @@ public class TimerActivity extends AppCompatActivity{
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
-        int newOrientation = newConfig.orientation;
-        if (newOrientation == Configuration.ORIENTATION_LANDSCAPE) {
-            // Do certain things when the user has switched to landscape.
-            setContentView(R.layout.activity_timer);
-            initUI();
-        }else{
-            setContentView(R.layout.activity_timer);
-            initUI();
-        }
+        setContentView(R.layout.activity_timer);
+        initUI();
     }
 
     @Override
@@ -148,8 +140,8 @@ public class TimerActivity extends AppCompatActivity{
                         Thread.sleep(10);
                         //Checking if Thread is still running because if we stopped the app
                         //whilst loop was running we don't want to increment timer
+                        currentMillis += 10;
                         if(timerIsRunning){
-                            currentMillis += 10;
                             String timeText = TimeFormatController.createTimeText(currentMillis);
                             runOnUiThread(new Runnable() {
                                 @Override

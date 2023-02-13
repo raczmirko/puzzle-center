@@ -9,6 +9,6 @@ public class PuzzleSquareOneActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_square_one);
+        setContentView(R.layout.activity_puzzle_square_one);
     }
 }
