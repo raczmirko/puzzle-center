@@ -105,8 +105,8 @@
     <string name="skewb_step_0"><b>Skewb thoughts</b>\n\nWhen first solving the Skewb it the axis of rotation seems weird and you may need some time to get used to the turning. Normally when turning the Skewb, you can think of each turn as twisting one of the corners, since the corners are on the axis of rotation.\n\nThe sledgehammer (R\' L R L\') is the only algorithm we have to use on the skewb. Neat, right? R means the top right corner facing you, L means top left corner facing you. It\'s worth to learn a fingertrick to perform it as it can make it a lot faster.</string>
     <string name="skewb_step_1"><b>White face</b>\n\nSolve one face intuitively in a way that <b>the sides of the corners match up</b> as well. Most commonly we start by the white face but being colour neutral can increase one\'s solving speed.</string>
     <string name="skewb_step_2"><b>Yellow corners</b>\n\nSecond step is to orientate all the yellow corners. There are two possibilities:</string>
-    <string name="skewb_step_3"><b>Yellow center</b>\n\nOnce all the yellow corners are oriented correctly, we have to turn the cube one a way that the yellow center is on the B (back) side and perform the following algorithm:</string>
-    <string name="skewb_step_4"><b>Sides</b>\n\nWe have to perform 3-cycles to move the center pieces around. The cycle goes like this: B -> U, U -> F, F -> B. Use the following algorithm:</string>
+    <string name="skewb_step_3"><b>Yellow center</b>\n\nOnce all the yellow corners are oriented correctly, we have to turn the cube in a way that the yellow center is on the B (back) side and perform the following algorithm:</string>
+    <string name="skewb_step_4"><b>Sides</b>\n\nWe have to perform 3-cycles to move the center pieces around. The cycle goes like this: B -> U, U -> F, F -> B. Use the 3-cycle algorithm from the last step!</string>
     <string name="alg_skewb_diagonal"><b>Diagonal</b>\n\nR\' L R L\'\n\nThis will leave us with a dead man</string>
     <string name="alg_skewb_deadman"><b>Deadman</b>\n\nR\' L R L\'</string>
     <string name="alg_skewb_3_cycle"><b>3-cycle centers</b>\n\n(R\' L R L\') (y2) (R\' L R L\')</string>
