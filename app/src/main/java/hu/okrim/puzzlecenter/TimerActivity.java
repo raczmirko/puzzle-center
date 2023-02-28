@@ -60,9 +60,12 @@ public class TimerActivity extends AppCompatActivity{
         textViewTime = findViewById(R.id.textViewTime);
         textViewPuzzleType = findViewById(R.id.textViewPuzzleType);
 
-        listAdapter = new ArrayAdapter<>(this,R.layout.list_layout);
-        listOfTimes.setAdapter(listAdapter);
-
+        int orientation = getResources().getConfiguration().orientation;
+        if (orientation == Configuration.ORIENTATION_PORTRAIT) {
+            // In portrait mode only
+            listAdapter = new ArrayAdapter<>(this,R.layout.list_layout);
+            listOfTimes.setAdapter(listAdapter);
+        }
         spinnerAdapter = ArrayAdapter.createFromResource(this, R.array.spinnerPuzzleType, android.R.layout.simple_spinner_item);
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         puzzleTypeSpinner.setAdapter(spinnerAdapter);
@@ -98,6 +101,9 @@ public class TimerActivity extends AppCompatActivity{
     @Override
     protected void onPause() {
         super.onPause();
+        if(timerIsRunning){
+            timerIsRunning = false;
+        }
         saveToSharedPreferences();
     }
 
@@ -145,10 +151,13 @@ public class TimerActivity extends AppCompatActivity{
             puzzleTypeSpinner.setEnabled(true);
             //Color.GREEN was too bright so had to grab another green
             buttonStartTimer.setBackgroundColor(Color.parseColor("#ff669900"));
+            buttonStartTimer.setText(R.string.start_timer);
+            buttonCancelTimer.setVisibility(View.GONE);
         }else{
             startTimerThread();
             puzzleTypeSpinner.setEnabled(false);
             buttonStartTimer.setBackgroundColor(Color.RED);
+            buttonStartTimer.setText(R.string.stop_timer);
             buttonCancelTimer.setVisibility(View.VISIBLE);
         }
     }

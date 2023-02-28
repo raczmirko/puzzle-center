@@ -8,18 +8,19 @@
     tools:context=".TimerActivity">
 
     <LinearLayout
+        android:id="@+id/linearLayoutScreen"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="match_parent"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
+        android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.5">
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -31,59 +32,59 @@
                 android:id="@+id/textViewTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:fontFamily="sans-serif-thin"
-                android:text="00:00:00"
+                android:text="@string/zero_time"
                 android:textAlignment="center"
-                android:textSize="60sp"
+                android:textSize="96sp"
                 android:textStyle="bold" />
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical">
+            <Space
+                android:layout_width="11dp"
+                android:layout_height="match_parent" />
 
-                <TextView
-                    android:id="@+id/textViewPuzzleType"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="sans-serif-light"
-                    android:text="Choose puzzle type:"
-                    android:textAlignment="center"
-                    android:textSize="24sp" />
-
-                <Spinner
-                    android:id="@+id/spinner"
-                    android:layout_width="match_parent"
-                    android:layout_height="48sp"
-                    android:layout_weight="1"
-                    android:background="@android:color/holo_orange_dark"
-                    android:textAlignment="center"
-                    tools:ignore="SpeakableTextPresentCheck" />
-            </LinearLayout>
-
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@color/teal_700"
+                android:popupBackground="@color/teal_700"
+                android:textAlignment="center"
+                tools:ignore="SpeakableTextPresentCheck" />
         </LinearLayout>
 
-        <Button
-            android:id="@+id/buttonStartTimer"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:backgroundTint="@android:color/holo_green_dark"
-            android:fontFamily="sans-serif-medium"
-            android:onClick="solveTimerPressed"
-            android:text="Start Timer!"
-            android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:orientation="horizontal">
 
-        <ListView
-            android:id="@+id/listViewTimes"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:visibility="gone" />
+            <Button
+                android:id="@+id/buttonStartTimer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:backgroundTint="@android:color/holo_green_dark"
+                android:fontFamily="sans-serif-medium"
+                android:onClick="solveTimerPressed"
+                android:text="@string/start_timer"
+                android:textColor="@color/white"
+                android:textSize="34sp" />
+
+            <Space
+                android:layout_width="11dp"
+                android:layout_height="match_parent" />
+
+            <Button
+                android:id="@+id/buttonCancelTimer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:backgroundTint="#D50C0C"
+                android:onClick="cancelTimerPressed"
+                android:text="@string/cancel_timer"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:visibility="gone" />
+        </LinearLayout>
 
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

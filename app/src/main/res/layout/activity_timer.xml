@@ -67,7 +67,8 @@
             android:id="@+id/spinner"
             android:layout_width="210sp"
             android:layout_height="48sp"
-            android:background="@android:color/holo_orange_dark"
+            android:background="@color/teal_700"
+            android:popupBackground="@color/teal_700"
             android:textAlignment="center"
             tools:ignore="SpeakableTextPresentCheck" />
 
@@ -93,6 +94,7 @@
             android:backgroundTint="#D50C0C"
             android:onClick="cancelTimerPressed"
             android:text="@string/cancel_timer"
+            android:textColor="@color/white"
             android:visibility="gone" />
 
         <Space
