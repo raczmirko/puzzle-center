@@ -179,35 +179,37 @@
                         android:layout_width="5sp"
                         android:layout_height="match_parent" />
 
-                    <TextView
-                        android:id="@+id/textView56"
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif"
                         android:gravity="center"
-                        android:text="@string/pyraminx_step_2"
-                        android:textColor="@color/black"
-                        android:textSize="16sp" />
+                        android:orientation="vertical"
+                        android:padding="15dp">
+
+                        <TextView
+                            android:id="@+id/textView56"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif"
+                            android:gravity="center"
+                            android:text="@string/pyraminx_step_2"
+                            android:textColor="@color/black"
+                            android:textSize="16sp" />
+
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="11dp" />
+
+                        <ImageView
+                            android:id="@+id/imageView4"
+                            android:layout_width="150dp"
+                            android:layout_height="150dp"
+                            android:layout_gravity="center"
+                            android:contentDescription="@string/todo"
+                            android:padding="5dp"
+                            app:srcCompat="@drawable/pyraminx_step_1" />
+                    </LinearLayout>
                 </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="15dp"
-                app:cardBackgroundColor="#dce3ef"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="10dp">
-
-                <ImageView
-                    android:id="@+id/imageView4"
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    android:layout_gravity="center"
-                    android:padding="5dp"
-                    android:contentDescription="@string/todo"
-                    app:srcCompat="@drawable/pyraminx_step_1" />
-
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
@@ -239,35 +241,37 @@
                         android:layout_width="5sp"
                         android:layout_height="match_parent" />
 
-                    <TextView
-                        android:id="@+id/textView23"
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif"
                         android:gravity="center"
-                        android:text="@string/pyraminx_step_3"
-                        android:textColor="@color/black"
-                        android:textSize="16sp" />
+                        android:orientation="vertical"
+                        android:padding="15dp">
+
+                        <TextView
+                            android:id="@+id/textView23"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif"
+                            android:gravity="center"
+                            android:text="@string/pyraminx_step_3"
+                            android:textColor="@color/black"
+                            android:textSize="16sp" />
+
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="11dp" />
+
+                        <ImageView
+                            android:id="@+id/imageView5"
+                            android:layout_width="150dp"
+                            android:layout_height="150dp"
+                            android:layout_gravity="center"
+                            android:contentDescription="@string/todo"
+                            android:padding="5dp"
+                            app:srcCompat="@drawable/pyraminx_step_2" />
+                    </LinearLayout>
                 </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="15dp"
-                app:cardBackgroundColor="#dce3ef"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="10dp">
-
-                <ImageView
-                    android:id="@+id/imageView5"
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    android:layout_gravity="center"
-                    android:padding="5dp"
-                    android:contentDescription="@string/todo"
-                    app:srcCompat="@drawable/pyraminx_step_2" />
-
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
