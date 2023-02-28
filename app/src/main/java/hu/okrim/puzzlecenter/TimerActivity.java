@@ -149,7 +149,6 @@ public class TimerActivity extends AppCompatActivity{
             endTimer();
             addTimeToList();
             puzzleTypeSpinner.setEnabled(true);
-            //Color.GREEN was too bright so had to grab another green
             buttonStartTimer.setBackgroundColor(Color.parseColor("#ff669900"));
             buttonStartTimer.setText(R.string.start_timer);
             buttonCancelTimer.setVisibility(View.GONE);
