@@ -193,7 +193,7 @@
                     android:enabled="false"
                     android:fontFamily="sans-serif-light"
                     android:onClick="loadNewIntent"
-                    android:text="@string/_6x6x6"
+                    android:text="@string/_6x6x6soon"
                     android:textColor="@color/black"
                     android:textSize="20sp"
                     tools:ignore="TextContrastCheck" />
