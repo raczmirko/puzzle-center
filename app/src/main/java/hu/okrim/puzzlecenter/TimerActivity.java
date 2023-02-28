@@ -168,6 +168,7 @@ public class TimerActivity extends AppCompatActivity{
             timerIsRunning = false;
             puzzleTypeSpinner.setEnabled(true);
             buttonStartTimer.setBackgroundColor(Color.parseColor("#ff669900"));
+            buttonStartTimer.setText(R.string.start_timer);
             //Make the cancel timer button disappear when timer is inactive
             buttonCancelTimer.setVisibility(View.GONE);
             textViewTime.setText(R.string.zero_time);
