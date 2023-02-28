@@ -120,6 +120,11 @@
     <string name="alg_pyraminx_5_2a"><b>Right-handed one mover</b>\n\nOne edge is oriented correctly but permutated incorrectly, and the two others are wrongly oriented and permutated. You can bring the right edge down to put it in place:\n\nR\' L R L\'</string>
     <string name="alg_pyraminx_5_2b"><b>Left-handed one mover</b>\n\nSame thing as the previous one except that now the left edge can be brought down to its place:\n\nL R\' L\' R</string>
     <string name="alg_pyraminx_5_3"><b>All 3 edges well oriented and wrongly permutated</b>\n\nJust do a right-handed one mover or a left-handed one mover, and then you will have the "2 edges flipped in place" case.</string>
+    <string name="puzzle_timer">Puzzle Timer</string>
+    <string name="zero_time">00:00:00</string>
+    <string name="choose_puzzle_type">Choose puzzle type:</string>
+    <string name="start_timer">Start Timer!</string>
+    <string name="cancel_timer">Cancel Timer!</string>
     <string-array name="spinnerPuzzleType">
         <item>2x2x2</item>
         <item>3x3x3</item>

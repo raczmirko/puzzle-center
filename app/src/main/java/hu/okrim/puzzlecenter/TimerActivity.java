@@ -5,7 +5,7 @@ import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
+//import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -14,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -32,6 +33,7 @@ public class TimerActivity extends AppCompatActivity{
     ArrayAdapter<CharSequence> spinnerAdapter;
     ArrayAdapter<String> listAdapter;
     Button buttonStartTimer;
+    Button buttonCancelTimer;
     ConstraintLayout screen;
     LinearLayout linearLayout;
     ListView listOfTimes;
@@ -45,40 +47,12 @@ public class TimerActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_timer);
-
-//        buttonStartTimer = findViewById(R.id.buttonStartTimer);
-//        screen = findViewById(R.id.wholeScreenLayout);
-//        puzzleTypeSpinner = findViewById(R.id.spinner);
-//        linearLayout = findViewById(R.id.linearLayoutScreen);
-//        listOfTimes = findViewById(R.id.listViewTimes);
-//        textViewTime = findViewById(R.id.textViewTime);
-//        textViewPuzzleType = findViewById(R.id.textViewPuzzleType);
-//
-//        listAdapter = new ArrayAdapter<>(this,R.layout.list_layout);
-//        listOfTimes.setAdapter(listAdapter);
-//
-//        spinnerAdapter = ArrayAdapter.createFromResource(this, R.array.spinnerPuzzleType, android.R.layout.simple_spinner_item);
-//        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        puzzleTypeSpinner.setAdapter(spinnerAdapter);
-//        puzzleTypeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//                if(!timerIsRunning){
-//                    currentPuzzle = parent.getItemAtPosition(position).toString();
-//                    currentPuzzleID = position;
-//                    ((TextView) parent.getChildAt(0)).setTextColor(Color.WHITE);
-//                    ((TextView) parent.getChildAt(0)).setTextSize(20);
-//                }
-//            }
-//            @Override
-//            public void onNothingSelected(AdapterView<?> parent) {
-//            }
-//        });
         initUI();
     }
 
     void initUI(){
         buttonStartTimer = findViewById(R.id.buttonStartTimer);
+        buttonCancelTimer = findViewById(R.id.buttonCancelTimer);
         screen = findViewById(R.id.wholeScreenLayout);
         puzzleTypeSpinner = findViewById(R.id.spinner);
         linearLayout = findViewById(R.id.linearLayoutScreen);
@@ -146,8 +120,10 @@ public class TimerActivity extends AppCompatActivity{
                             runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
-                                    // Stuff that updates the UI
-                                    textViewTime.setText(timeText);
+                                    // Updating timer text on UI thread
+                                    if(timerIsRunning) {
+                                        textViewTime.setText(timeText);
+                                    }
                                 }
                             });
                         }
@@ -168,46 +144,27 @@ public class TimerActivity extends AppCompatActivity{
             addTimeToList();
             puzzleTypeSpinner.setEnabled(true);
             //Color.GREEN was too bright so had to grab another green
-            runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    buttonStartTimer.setBackgroundColor(Color.parseColor("#ff669900"));
-                }
-            });
+            buttonStartTimer.setBackgroundColor(Color.parseColor("#ff669900"));
         }else{
             startTimerThread();
             puzzleTypeSpinner.setEnabled(false);
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        buttonStartTimer.setBackgroundColor(Color.RED);
-                    }
-                });
-
+            buttonStartTimer.setBackgroundColor(Color.RED);
+            buttonCancelTimer.setVisibility(View.VISIBLE);
         }
     }
 
-//    public String createTimeText(int ms){
-//        int time = ms;
-//        //Millis / 60_000 gives number of minutes since 1m = 60s = 60_000ms
-//        String minutes = String.valueOf(time / 60_000);
-//        time = time % 60_000;
-//        //Whatever is left will be the number of seconds if devided by 1000
-//        String seconds = String.valueOf(time / 1_000);
-//        time = time % 1000;
-//        //Rest are the millis, and we only want to display two of them so we devide by 10
-//        String millis = String.valueOf((time % 1_000) / 10);
-//
-//        StringBuilder stringBuilder = new StringBuilder();
-//
-//        stringBuilder.append(minutes.length() == 1 ? "0" + minutes : minutes);
-//        stringBuilder.append(":");
-//        stringBuilder.append(seconds.length() == 1 ? "0" + seconds : seconds);
-//        stringBuilder.append(":");
-//        stringBuilder.append(millis.length() == 1 ? "0" + millis : millis);
-//
-//        return stringBuilder.toString();
-//    }
+    public void cancelTimerPressed(android.view.View source){
+        //Only does something if timer is running
+        if(timerIsRunning){
+            timerIsRunning = false;
+            puzzleTypeSpinner.setEnabled(true);
+            buttonStartTimer.setBackgroundColor(Color.parseColor("#ff669900"));
+            //Make the cancel timer button disappear when timer is inactive
+            buttonCancelTimer.setVisibility(View.GONE);
+            textViewTime.setText(R.string.zero_time);
+            Toast.makeText(getApplicationContext(),"Timer cancelled.", Toast.LENGTH_SHORT).show();
+        }
+    }
 
     public void endTimer(){
         timerIsRunning = false;
@@ -268,8 +225,8 @@ public class TimerActivity extends AppCompatActivity{
         if(mapToCheck.get(1) == null){
             //So current time will be new record in any case
             mapToCheck.put(1, recordString);
-            Log.d("newRecord", "New record logged, no previous record found: " + millis);
-            System.out.println("New record logged, no previous record was found.");
+//            Log.d("newRecord", "New record logged, no previous record found: " + millis);
+//            System.out.println("New record logged, no previous record was found.");
         }
         //1st place exists, but 2nd place doesn't yet exist
         //2nd record doesn't exist yet
@@ -290,15 +247,15 @@ public class TimerActivity extends AppCompatActivity{
                     //Adding new 1st place after 2nd and 3rd values are moved correctly
                     mapToCheck.replace(1, recordString);
                 }
-                Log.d("newRecord", "New 1st place logged: " + millis + ". Previous record is now 2nd best time.");
-                System.out.println("New 1st place logged: " + millis + ". Previous record is now 2nd best time.");
+//                Log.d("newRecord", "New 1st place logged: " + millis + ". Previous record is now 2nd best time.");
+//                System.out.println("New 1st place logged: " + millis + ". Previous record is now 2nd best time.");
             }
             //If current time is more than 1st then current -> 2nd
             // (since in this branch there was no 2nd there is no need to shift 2nd -> 3rd)
             else if(millis > current1st){
                 mapToCheck.put(2, recordString);
-                Log.d("newRecord", "New 2nd place logged, no previous 2nd place found: " + millis);
-                System.out.println("New 2nd place logged, no previous 2nd place found: " + millis);
+//                Log.d("newRecord", "New 2nd place logged, no previous 2nd place found: " + millis);
+//                System.out.println("New 2nd place logged, no previous 2nd place found: " + millis);
             }
         }
         //1st and 2nd places exist but 3rd doesn't yet exist
@@ -327,8 +284,8 @@ public class TimerActivity extends AppCompatActivity{
                     //new 1st
                     mapToCheck.replace(1,recordString);
                 }
-                Log.d("newRecord", "New 1st place logged: " + millis + ". Previous record is now 2nd best time.");
-                System.out.println("New 1st place logged: " + millis + ". Previous record is now 2nd best time.");
+//                Log.d("newRecord", "New 1st place logged: " + millis + ". Previous record is now 2nd best time.");
+//                System.out.println("New 1st place logged: " + millis + ". Previous record is now 2nd best time.");
             }
             //If current time is more than 1st but less than 2nd
             else if(millis > current1st && millis < current2nd){
@@ -339,15 +296,15 @@ public class TimerActivity extends AppCompatActivity{
                     //And replace 2nd with new value
                     mapToCheck.replace(2, recordString);
                 }
-                Log.d("newRecord", "New 2nd place logged, no previous 2nd place found: " + millis  + ". Previous 2nd is now 3rd best time.");
-                System.out.println("New 2nd place logged, no previous 2nd place found: " + millis  + ". Previous 2nd is now 3rd best time.");
+//                Log.d("newRecord", "New 2nd place logged, no previous 2nd place found: " + millis  + ". Previous 2nd is now 3rd best time.");
+//                System.out.println("New 2nd place logged, no previous 2nd place found: " + millis  + ". Previous 2nd is now 3rd best time.");
             }
             //If current time is more than 1st and 2nd and there is no 3rd place currently
             else{
                 mapToCheck.put(3, recordString);
             }
-            Log.d("newRecord", "New 3rd place logged, no previous 3rd place found: " + millis);
-            System.out.println("New 3rd place logged, no previous 3rd place found: " + millis);
+//            Log.d("newRecord", "New 3rd place logged, no previous 3rd place found: " + millis);
+//            System.out.println("New 3rd place logged, no previous 3rd place found: " + millis);
         }
         //1sr 2nd and 3rd places all exist already
         else{
@@ -378,8 +335,8 @@ public class TimerActivity extends AppCompatActivity{
                     //New 1st place is saved
                     mapToCheck.replace(1, recordString);
                 }
-                Log.d("newRecord", "New 1st place logged: " + millis + ". Shifting 2nd and 3rd places.");
-                System.out.println("New 1st place logged: " + millis + ". Shifting 2nd and 3rd places.");
+//                Log.d("newRecord", "New 1st place logged: " + millis + ". Shifting 2nd and 3rd places.");
+//                System.out.println("New 1st place logged: " + millis + ". Shifting 2nd and 3rd places.");
             }
             else if (millis > current1st && millis < current2nd) {
                 //Function requires API24 at least
@@ -389,22 +346,22 @@ public class TimerActivity extends AppCompatActivity{
                     //Adding new 2nd place after 2nd value is moved to 3rd place
                     mapToCheck.replace(2, recordString);
                 }
-                Log.d("newRecord", "New 2nd place logged: " + millis + ". Shifting 2nd to 3rd place.");
-                System.out.println("New 2nd place logged: " + millis + ". Shifting 2nd to 3rd place.");
+//                Log.d("newRecord", "New 2nd place logged: " + millis + ". Shifting 2nd to 3rd place.");
+//                System.out.println("New 2nd place logged: " + millis + ". Shifting 2nd to 3rd place.");
             }
             else if(millis > current2nd && millis < current3rd){
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                     //3rd value gets replaced by new record
                     mapToCheck.replace(3, recordString);
                 }
-                Log.d("newRecord", "New 3rd place logged: " + millis + ". Discarding old 3rd place.");
-                System.out.println("New 3rd place logged: " + millis + ". Discarding old 3rd place.");
+//                Log.d("newRecord", "New 3rd place logged: " + millis + ". Discarding old 3rd place.");
+//                System.out.println("New 3rd place logged: " + millis + ". Discarding old 3rd place.");
             }
         }
         //Printing the current leaderboard
-        System.out.println("1st time: " + mapToCheck.get(1));
-        System.out.println("2nd time: " + mapToCheck.get(2));
-        System.out.println("3rd time: " + mapToCheck.get(3));
+//        System.out.println("1st time: " + mapToCheck.get(1));
+//        System.out.println("2nd time: " + mapToCheck.get(2));
+//        System.out.println("3rd time: " + mapToCheck.get(3));
     }
 
     void saveToSharedPreferences(){
