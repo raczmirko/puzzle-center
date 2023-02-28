@@ -46,8 +46,8 @@
                 android:id="@+id/spinner"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:background="@color/teal_700"
-                android:popupBackground="@color/teal_700"
+                android:background="@android:color/holo_orange_dark"
+                android:popupBackground="@android:color/holo_orange_dark"
                 android:textAlignment="center"
                 tools:ignore="SpeakableTextPresentCheck" />
         </LinearLayout>
