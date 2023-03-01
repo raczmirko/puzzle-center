@@ -32,7 +32,7 @@
                 android:layout_weight="1"
                 android:contentDescription="@string/todo"
                 android:textAlignment="center"
-                app:srcCompat="@drawable/puzzlecenterlogo" />
+                app:srcCompat="@drawable/puzzle_center_logo_final" />
 
             <LinearLayout
                 android:layout_width="wrap_content"

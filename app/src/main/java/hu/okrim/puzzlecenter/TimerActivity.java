@@ -220,6 +220,24 @@ public class TimerActivity extends AppCompatActivity{
             case "square-1":
                 updateRecordTimes(SharedPreferenceController.squareOneRecords,millis);
                 break;
+            case "void cube":
+                updateRecordTimes(SharedPreferenceController.voidCubeRecords,millis);
+                break;
+            case "super ivy cube":
+                updateRecordTimes(SharedPreferenceController.superIvyCubeRecords,millis);
+                break;
+            case "pentacle cube":
+                updateRecordTimes(SharedPreferenceController.pentacleCubeRecords,millis);
+                break;
+            case "2x2 pyraminx":
+                updateRecordTimes(SharedPreferenceController.n2PyraminxRecords,millis);
+                break;
+            case "2x2x4":
+                updateRecordTimes(SharedPreferenceController.x2x4Records,millis);
+                break;
+            case "master pyraminx":
+                updateRecordTimes(SharedPreferenceController.masterPyraminxRecords,millis);
+                break;
         }
     }
 
@@ -387,6 +405,12 @@ public class TimerActivity extends AppCompatActivity{
         SharedPreferenceController.saveAllElementsToSharedPrefences(SharedPreferenceController.skewbRecords, "skewb", myEditor);
         SharedPreferenceController.saveAllElementsToSharedPrefences(SharedPreferenceController.squareOneRecords, "square-1", myEditor);
         SharedPreferenceController.saveAllElementsToSharedPrefences(SharedPreferenceController.clockRecords, "magic clock", myEditor);
+        SharedPreferenceController.saveAllElementsToSharedPrefences(SharedPreferenceController.voidCubeRecords, "void cube", myEditor);
+        SharedPreferenceController.saveAllElementsToSharedPrefences(SharedPreferenceController.superIvyCubeRecords, "super ivy cube", myEditor);
+        SharedPreferenceController.saveAllElementsToSharedPrefences(SharedPreferenceController.pentacleCubeRecords, "pentacle cube", myEditor);
+        SharedPreferenceController.saveAllElementsToSharedPrefences(SharedPreferenceController.n2PyraminxRecords, "2x2 pyraminx", myEditor);
+        SharedPreferenceController.saveAllElementsToSharedPrefences(SharedPreferenceController.x2x4Records, "2x2x4", myEditor);
+        SharedPreferenceController.saveAllElementsToSharedPrefences(SharedPreferenceController.masterPyraminxRecords, "master pyraminx", myEditor);
     }
 
     void loadFromSharedPreferences(){
@@ -402,5 +426,11 @@ public class TimerActivity extends AppCompatActivity{
         SharedPreferenceController.loadAllElementsFromSharedPrefences(SharedPreferenceController.skewbRecords,"skewb", sharedPreferences);
         SharedPreferenceController.loadAllElementsFromSharedPrefences(SharedPreferenceController.squareOneRecords,"square-1", sharedPreferences);
         SharedPreferenceController.loadAllElementsFromSharedPrefences(SharedPreferenceController.clockRecords,"magic clock", sharedPreferences);
+        SharedPreferenceController.loadAllElementsFromSharedPrefences(SharedPreferenceController.voidCubeRecords,"void cube", sharedPreferences);
+        SharedPreferenceController.loadAllElementsFromSharedPrefences(SharedPreferenceController.superIvyCubeRecords,"super ivy cube", sharedPreferences);
+        SharedPreferenceController.loadAllElementsFromSharedPrefences(SharedPreferenceController.pentacleCubeRecords,"pentacle cube", sharedPreferences);
+        SharedPreferenceController.loadAllElementsFromSharedPrefences(SharedPreferenceController.n2PyraminxRecords,"2x2 pyraminx", sharedPreferences);
+        SharedPreferenceController.loadAllElementsFromSharedPrefences(SharedPreferenceController.x2x4Records,"2x2x4", sharedPreferences);
+        SharedPreferenceController.loadAllElementsFromSharedPrefences(SharedPreferenceController.masterPyraminxRecords,"master pyraminx", sharedPreferences);
     }
 }

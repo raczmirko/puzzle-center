@@ -92,7 +92,7 @@ public class RecordsActivity extends AppCompatActivity {
             }
         }catch(NullPointerException NPE){
             System.out.println(NPE.getMessage());
-            Log.d("ErrorLoadingRecords", NPE.getMessage());
+//            Log.d("ErrorLoadingRecords", NPE.getMessage());
         }
     }
 }

@@ -18,6 +18,12 @@ public abstract class SharedPreferenceController {
     public static HashMap<Integer, String> squareOneRecords = new HashMap<>();
     public static HashMap<Integer, String> skewbRecords = new HashMap<>();
     public static HashMap<Integer, String> clockRecords = new HashMap<>();
+    public static HashMap<Integer, String> voidCubeRecords = new HashMap<>();
+    public static HashMap<Integer, String> superIvyCubeRecords = new HashMap<>();
+    public static HashMap<Integer, String> pentacleCubeRecords = new HashMap<>();
+    public static HashMap<Integer, String> n2PyraminxRecords = new HashMap<>();
+    public static HashMap<Integer, String> x2x4Records = new HashMap<>();
+    public static HashMap<Integer, String> masterPyraminxRecords = new HashMap<>();
 
     public static void saveAllElementsToSharedPrefences(HashMap<Integer, String> map, String mapName, SharedPreferences.Editor editor){
         for(int i = 1; i < map.size() + 1; i++){
@@ -28,7 +34,7 @@ public abstract class SharedPreferenceController {
                 System.out.println("Saving: " + keyName + " = " + map.get(i));
                 editor.apply();
             }catch(NullPointerException NPE){
-                Log.d("SharedPreferenceSaveError", "NullPointerException occurred whilst saving.");
+//                Log.d("SharedPreferenceSaveError", "NullPointerException occurred whilst saving.");
                 System.out.println("NullPointerException occurred whilst saving to sharedPreferences.");
             }
         }
@@ -44,7 +50,7 @@ public abstract class SharedPreferenceController {
                 String valueToStore = sharedPreferences.getString(keyName, null);
                 map.put(i,valueToStore);
             }catch(NullPointerException NPE){
-                Log.d("SharedPreferenceLoadError", "NullPointerException occurred whilst loading.");
+//                Log.d("SharedPreferenceLoadError", "NullPointerException occurred whilst loading.");
                 System.out.println("NullPointerException occurred whilst loading from sharedPreferences.");
             }
         }

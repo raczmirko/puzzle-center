@@ -139,5 +139,11 @@
         <item>Square-1</item>
         <item>Skewb</item>
         <item>Magic Clock</item>
+        <item>Void Cube</item>
+        <item>Super Ivy Cube</item>
+        <item>Pentacle Cube</item>
+        <item>2x2 Pyraminx</item>
+        <item>2x2x4</item>
+        <item>Master Pyraminx</item>
     </string-array>
 </resources>
