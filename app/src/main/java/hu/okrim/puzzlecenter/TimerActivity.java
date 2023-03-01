@@ -181,8 +181,11 @@ public class TimerActivity extends AppCompatActivity{
     }
 
     public void addTimeToList(){
-        String messageToInsert = SDF.format(new Date()) + "  |  " + textViewTime.getText().toString() + "  |  " + puzzleTypeSpinner.getSelectedItem().toString();
-        listAdapter.insert(messageToInsert, 0);
+        int orientation = getResources().getConfiguration().orientation;
+        if (orientation == Configuration.ORIENTATION_PORTRAIT) {
+            String messageToInsert = SDF.format(new Date()) + "  |  " + textViewTime.getText().toString() + "  |  " + puzzleTypeSpinner.getSelectedItem().toString();
+            listAdapter.insert(messageToInsert, 0);
+        }
     }
 
     public void addTimeToCorrespondingMap(int millis){

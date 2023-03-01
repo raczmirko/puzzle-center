@@ -138,7 +138,7 @@
         <Spinner
             android:id="@+id/spinnerRecord"
             android:layout_width="match_parent"
-            android:layout_height="50sp"
+            android:layout_height="70dp"
             android:background="@android:color/holo_orange_dark"
             android:popupBackground="@android:color/holo_orange_dark"
             android:textAlignment="center"
