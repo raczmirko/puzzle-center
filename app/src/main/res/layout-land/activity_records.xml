@@ -69,7 +69,7 @@
                     android:fontFamily="sans-serif-light"
                     android:text="@string/_1st"
                     android:textAlignment="center"
-                    android:textSize="20sp"
+                    android:textSize="24sp"
                     android:textStyle="bold|italic" />
 
                 <TextView
@@ -108,7 +108,7 @@
                     android:fontFamily="sans-serif-light"
                     android:text="@string/_2nd"
                     android:textAlignment="center"
-                    android:textSize="20sp"
+                    android:textSize="24sp"
                     android:textStyle="bold|italic" />
 
                 <TextView
@@ -146,7 +146,7 @@
                     android:fontFamily="sans-serif-light"
                     android:text="@string/_3rd"
                     android:textAlignment="center"
-                    android:textSize="20sp"
+                    android:textSize="24sp"
                     android:textStyle="bold|italic" />
 
                 <TextView
