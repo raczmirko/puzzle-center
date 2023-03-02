@@ -44,14 +44,14 @@ public class RecordsActivity extends AppCompatActivity {
         sharedPreferences = getSharedPreferences("MySharedPref",MODE_PRIVATE);
 
         spinnerAdapter = ArrayAdapter.createFromResource(this, R.array.spinnerPuzzleType, android.R.layout.simple_spinner_item);
-        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerAdapter.setDropDownViewResource(R.layout.custom_spinner_layout);
         spinnerRecord.setAdapter(spinnerAdapter);
         spinnerRecord.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 //Setting spinner text color and size
                 ((TextView) parent.getChildAt(0)).setTextColor(Color.WHITE);
-                ((TextView) parent.getChildAt(0)).setTextSize(20);
+                ((TextView) parent.getChildAt(0)).setTextSize(30);
                 puzzleToLoad = spinnerRecord.getSelectedItem().toString().toLowerCase();
                 currentPuzzleID = position;
                 loadRecordsToMap(puzzleToLoad);

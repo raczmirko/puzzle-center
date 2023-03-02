@@ -1,5 +1,6 @@
 package hu.okrim.puzzlecenter;
 
+import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Color;
@@ -41,7 +42,10 @@ public class TimerActivity extends AppCompatActivity{
     TextView textViewTime;
     TextView textViewPuzzleType;
     Thread timer;
+    @SuppressLint("SimpleDateFormat")
     SimpleDateFormat SDF = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+    @SuppressLint("SimpleDateFormat")
+    SimpleDateFormat listTimeFormat = new SimpleDateFormat("HH:mm:ss");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,11 +67,11 @@ public class TimerActivity extends AppCompatActivity{
         int orientation = getResources().getConfiguration().orientation;
         if (orientation == Configuration.ORIENTATION_PORTRAIT) {
             // In portrait mode only
-            listAdapter = new ArrayAdapter<>(this,R.layout.list_layout);
+            listAdapter = new ArrayAdapter<>(this,R.layout.custom_list_layout);
             listOfTimes.setAdapter(listAdapter);
         }
         spinnerAdapter = ArrayAdapter.createFromResource(this, R.array.spinnerPuzzleType, android.R.layout.simple_spinner_item);
-        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerAdapter.setDropDownViewResource(R.layout.custom_spinner_layout);
         puzzleTypeSpinner.setAdapter(spinnerAdapter);
         puzzleTypeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -76,7 +80,7 @@ public class TimerActivity extends AppCompatActivity{
                     currentPuzzle = parent.getItemAtPosition(position).toString();
                     currentPuzzleID = position;
                     ((TextView) parent.getChildAt(0)).setTextColor(Color.WHITE);
-                    ((TextView) parent.getChildAt(0)).setTextSize(20);
+                    ((TextView) parent.getChildAt(0)).setTextSize(30);
                 }
             }
             @Override
@@ -183,7 +187,7 @@ public class TimerActivity extends AppCompatActivity{
     public void addTimeToList(){
         int orientation = getResources().getConfiguration().orientation;
         if (orientation == Configuration.ORIENTATION_PORTRAIT) {
-            String messageToInsert = SDF.format(new Date()) + "  |  " + textViewTime.getText().toString() + "  |  " + puzzleTypeSpinner.getSelectedItem().toString();
+            String messageToInsert = listTimeFormat.format(new Date()) + "  |  " + textViewTime.getText().toString() + "  |  " + puzzleTypeSpinner.getSelectedItem().toString();
             listAdapter.insert(messageToInsert, 0);
         }
     }
