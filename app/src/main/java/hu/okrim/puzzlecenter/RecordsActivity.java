@@ -3,6 +3,7 @@ package hu.okrim.puzzlecenter;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -33,7 +34,17 @@ public class RecordsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_records);
+        initUI();
+    }
 
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        setContentView(R.layout.activity_records);
+        initUI();
+    }
+
+    private void initUI() {
         value1 = findViewById(R.id.textViewRecords1stValue);
         value2 = findViewById(R.id.textViewRecords2ndValue);
         value3 = findViewById(R.id.textViewRecords3rdValue);
