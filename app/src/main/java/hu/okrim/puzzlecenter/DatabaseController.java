@@ -69,8 +69,8 @@ public class DatabaseController extends SQLiteOpenHelper {
                 String puzzle = cursor.getString(2);
                 int time = cursor.getInt(3);
 
-                DataEntryModel newCustomer = new DataEntryModel(dateString, puzzle, time);
-                returnList.add(newCustomer);
+                DataEntryModel newRecord = new DataEntryModel(dateString, puzzle, time);
+                returnList.add(newRecord);
 
             }while(cursor.moveToNext());
         }else{
