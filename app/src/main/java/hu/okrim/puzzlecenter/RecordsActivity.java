@@ -1,7 +1,5 @@
 package hu.okrim.puzzlecenter;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Color;
@@ -12,16 +10,16 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import java.util.HashMap;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.util.List;
 
 public class RecordsActivity extends AppCompatActivity {
 
     ArrayAdapter<CharSequence> spinnerAdapter;
     int currentPuzzleID;
-    HashMap<Integer, String> map = new HashMap<>();
     Spinner puzzleTypeSpinner;
-    SharedPreferences sharedPreferences;
     String currentPuzzle = null;
     TextView value1;
     TextView value2;
@@ -39,7 +37,7 @@ public class RecordsActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onConfigurationChanged(Configuration newConfig) {
+    public void onConfigurationChanged(@NonNull Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         setContentView(R.layout.activity_records);
         initUI();

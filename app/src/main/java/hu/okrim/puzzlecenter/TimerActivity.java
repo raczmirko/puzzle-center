@@ -4,9 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
-//import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -17,12 +15,12 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.HashMap;
 
 public class TimerActivity extends AppCompatActivity{
 
@@ -91,7 +89,7 @@ public class TimerActivity extends AppCompatActivity{
     }
 
     @Override
-    public void onConfigurationChanged(Configuration newConfig) {
+    public void onConfigurationChanged(@NonNull Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         setContentView(R.layout.activity_timer);
         initUI();

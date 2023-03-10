@@ -41,7 +41,7 @@ public class DatabaseController extends SQLiteOpenHelper {
         //Since we only run a local database this function is emitted...
     }
 
-    public boolean addRecord(DataEntryModel dataEntryModel){
+    public void addRecord(DataEntryModel dataEntryModel){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
@@ -50,8 +50,6 @@ public class DatabaseController extends SQLiteOpenHelper {
         cv.put(COLUMN_DATE, dataEntryModel.getDateString());
 
         long insert = db.insert(RECORDS_TABLE, null, cv);
-
-        return insert == -1;
     }
 
     public List<DataEntryModel> getAllRecords(){
@@ -73,8 +71,6 @@ public class DatabaseController extends SQLiteOpenHelper {
                 returnList.add(newRecord);
 
             }while(cursor.moveToNext());
-        }else{
-            //Failure, do not add anything to the list.
         }
 
         //Close both cursor and connection.
@@ -102,8 +98,6 @@ public class DatabaseController extends SQLiteOpenHelper {
                 returnList.add(newCustomer);
 
             }while(cursor.moveToNext());
-        }else{
-            //failure, do not add anything to the list
         }
 
         //close both cursor and connection
@@ -131,8 +125,6 @@ public class DatabaseController extends SQLiteOpenHelper {
                 returnList.add(newCustomer);
 
             }while(cursor.moveToNext());
-        }else{
-            //failure, do not add anything to the list
         }
 
         //close both cursor and connection
