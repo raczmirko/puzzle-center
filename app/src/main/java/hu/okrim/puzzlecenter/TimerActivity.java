@@ -100,6 +100,16 @@ public class TimerActivity extends AppCompatActivity{
     @Override
     protected void onResume() {
         super.onResume();
+        loadLastSelectedPuzzleToSpinner();
+    }
+
+    private void loadLastSelectedPuzzleToSpinner() {
+        SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE);
+        //Loading currentPuzzle from SharedPreferences, or if not found then 2x2x2 will be default
+        currentPuzzle = sharedPreferences.getString("puzzleSelected", "2x2x2");
+        //Setting the spinner to the correct puzzle
+        //spinnerAdapter.setDropDownViewResource(spinnerAdapter.getPosition(currentPuzzle));
+        puzzleTypeSpinner.setSelection(spinnerAdapter.getPosition(currentPuzzle));
     }
 
     @Override
@@ -108,6 +118,11 @@ public class TimerActivity extends AppCompatActivity{
         if(timerIsRunning){
             timerIsRunning = false;
         }
+        //Saving what puzzle was selected on the spinner.
+        SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref",MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("puzzleSelected", currentPuzzle);
+        editor.apply();
     }
 
     public void startTimerThread(){

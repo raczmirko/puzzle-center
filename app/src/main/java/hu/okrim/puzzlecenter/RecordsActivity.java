@@ -6,7 +6,6 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -21,9 +20,9 @@ public class RecordsActivity extends AppCompatActivity {
     ArrayAdapter<CharSequence> spinnerAdapter;
     int currentPuzzleID;
     HashMap<Integer, String> map = new HashMap<>();
-    Spinner spinnerRecord;
+    Spinner puzzleTypeSpinner;
     SharedPreferences sharedPreferences;
-    String puzzleToLoad = null;
+    String currentPuzzle = null;
     TextView value1;
     TextView value2;
     TextView value3;
@@ -53,19 +52,18 @@ public class RecordsActivity extends AppCompatActivity {
         date1 = findViewById(R.id.textViewRecords1stDate);
         date2 = findViewById(R.id.textViewRecords2ndDate);
         date3 = findViewById(R.id.textViewRecords3rdDate);
-        spinnerRecord = findViewById(R.id.spinnerRecord);
-        sharedPreferences = getSharedPreferences("MySharedPref",MODE_PRIVATE);
+        puzzleTypeSpinner = findViewById(R.id.spinnerRecord);
 
         spinnerAdapter = ArrayAdapter.createFromResource(this, R.array.spinnerPuzzleType, android.R.layout.simple_spinner_item);
         spinnerAdapter.setDropDownViewResource(R.layout.custom_spinner_layout);
-        spinnerRecord.setAdapter(spinnerAdapter);
-        spinnerRecord.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        puzzleTypeSpinner.setAdapter(spinnerAdapter);
+        puzzleTypeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 //Setting spinner text color and size
                 ((TextView) parent.getChildAt(0)).setTextColor(Color.WHITE);
                 ((TextView) parent.getChildAt(0)).setTextSize(30);
-                puzzleToLoad = spinnerRecord.getSelectedItem().toString().toLowerCase();
+                currentPuzzle = puzzleTypeSpinner.getSelectedItem().toString();
                 currentPuzzleID = position;
                 loadRecordsToViews();
             }
@@ -75,8 +73,33 @@ public class RecordsActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        loadLastSelectedPuzzleToSpinner();
+    }
+
+    private void loadLastSelectedPuzzleToSpinner() {
+        SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE);
+        //Loading currentPuzzle from SharedPreferences, or if not found then 2x2x2 will be default
+        currentPuzzle = sharedPreferences.getString("puzzleSelected", "2x2x2");
+        //Setting the spinner to the correct puzzle
+        //spinnerAdapter.setDropDownViewResource(spinnerAdapter.getPosition(currentPuzzle));
+        puzzleTypeSpinner.setSelection(spinnerAdapter.getPosition(currentPuzzle));
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        //Saving what puzzle was selected on the spinner.
+        SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref",MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("puzzleSelected", currentPuzzle);
+        editor.apply();
+    }
+
     void loadRecordsToViews(){
-        List<DataEntryModel> dataEntryList = databaseController.getTop3Solves(puzzleToLoad);
+        List<DataEntryModel> dataEntryList = databaseController.getTop3Solves(currentPuzzle);
         //Setting everything to default values
         value1.setText("-");
         value2.setText("-");
