@@ -109,7 +109,7 @@ public class DatabaseController extends SQLiteOpenHelper {
     public List<DataEntryModel> getTop3Solves(String puzzleToCheck){
         List<DataEntryModel> returnList = new ArrayList<>();
         //Get data from the Database.
-        String queryString = "SELECT COLUMN_TIME, COUNT(COLUMN_TIME) AS times, MAX(COLUMN_PUZZLE), MAX(COLUMN_DATE) FROM " + RECORDS_TABLE + " WHERE COLUMN_PUZZLE = " + "'" + puzzleToCheck + "'" + " GROUP BY COLUMN_TIME ORDER BY COLUMN_TIME ASC LIMIT 3";
+        String queryString = "SELECT COLUMN_TIME, COUNT(COLUMN_TIME) AS times, MAX(COLUMN_PUZZLE), MAX(COLUMN_DATE) FROM " + RECORDS_TABLE + " WHERE COLUMN_PUZZLE LIKE(" + "'" + puzzleToCheck + "'" + ") GROUP BY COLUMN_TIME ORDER BY COLUMN_TIME ASC LIMIT 3";
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(queryString, null);
 

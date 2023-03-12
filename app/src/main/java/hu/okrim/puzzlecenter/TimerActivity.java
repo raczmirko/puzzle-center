@@ -86,6 +86,7 @@ public class TimerActivity extends AppCompatActivity{
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
+        loadLastSelectedPuzzleToSpinner();
     }
 
     @Override
@@ -116,6 +117,10 @@ public class TimerActivity extends AppCompatActivity{
         if(timerIsRunning){
             timerIsRunning = false;
         }
+        saveSelectedPuzzle();
+    }
+
+    private void saveSelectedPuzzle() {
         //Saving what puzzle was selected on the spinner.
         SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref",MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();

@@ -55,6 +55,7 @@ public class RecordsActivity extends AppCompatActivity {
         spinnerAdapter = ArrayAdapter.createFromResource(this, R.array.spinnerPuzzleType, android.R.layout.simple_spinner_item);
         spinnerAdapter.setDropDownViewResource(R.layout.custom_spinner_layout);
         puzzleTypeSpinner.setAdapter(spinnerAdapter);
+        loadLastSelectedPuzzleToSpinner();
         puzzleTypeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -82,13 +83,16 @@ public class RecordsActivity extends AppCompatActivity {
         //Loading currentPuzzle from SharedPreferences, or if not found then 2x2x2 will be default
         currentPuzzle = sharedPreferences.getString("puzzleSelected", "2x2x2");
         //Setting the spinner to the correct puzzle
-        //spinnerAdapter.setDropDownViewResource(spinnerAdapter.getPosition(currentPuzzle));
         puzzleTypeSpinner.setSelection(spinnerAdapter.getPosition(currentPuzzle));
     }
 
     @Override
     protected void onPause() {
         super.onPause();
+        saveSelectedPuzzle();
+    }
+
+    private void saveSelectedPuzzle() {
         //Saving what puzzle was selected on the spinner.
         SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref",MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
