@@ -127,6 +127,14 @@
     <string name="start_timer">Start Timer!</string>
     <string name="cancel_timer">Cancel Timer!</string>
     <string name="stop_timer">Stop Timer!</string>
+    <string name="statistics">Statistics</string>
+    <string name="total_solves">Total\nSolves:</string>
+    <string name="favourite_puzzle">Favourite Puzzle:</string>
+    <string name="textview">TextView</string>
+    <string name="first_solve">First solve:</string>
+    <string name="total_solves_default">Total solves: -</string>
+    <string name="none_yet">None yet :)</string>
+    <string name="dash">-</string>
     <string-array name="spinnerPuzzleType">
         <item>2x2x2</item>
         <item>3x3x3</item>

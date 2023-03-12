@@ -132,4 +132,74 @@ public class DatabaseController extends SQLiteOpenHelper {
         db.close();
         return returnList;
     }
+
+    public String getTotalSolves(){
+        //Get data from the Database.
+        String queryString = "SELECT COUNT(*) FROM " + RECORDS_TABLE;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(queryString, null);
+        String returnString = "";
+        //If first element was found, meaning there were results...
+        if(cursor.moveToFirst()){
+            //loop through cursor (result set) and create new customer objects, put them in returnList
+            do{
+                returnString = String.valueOf(cursor.getInt(0));
+            }while(cursor.moveToNext());
+        }
+        //close both cursor and connection
+        cursor.close();
+        db.close();
+        return returnString;
+    }
+
+    //Gets the solve that has the earliest date
+    public List<DataEntryModel> getFirstSolve(){
+        List<DataEntryModel> returnList = new ArrayList<>();
+        //Get data from the Database.
+        String queryString = "SELECT * FROM RECORDS_TABLE WHERE COLUMN_DATE = (SELECT MIN(COLUMN_DATE) FROM RECORDS_TABLE)";
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(queryString, null);
+
+        //If first element was found, meaning there were results...
+        if(cursor.moveToFirst()){
+            //loop through cursor (result set) and create new customer objects, put them in returnList
+            do{
+                String dateString = cursor.getString(1);
+                String puzzle = cursor.getString(2);
+                int time = cursor.getInt(3);
+
+                DataEntryModel newCustomer = new DataEntryModel(dateString, puzzle, time);
+                returnList.add(newCustomer);
+
+            }while(cursor.moveToNext());
+        }
+
+        //close both cursor and connection
+        cursor.close();
+        db.close();
+        return returnList;
+    }
+
+    public List<String> getFavouritePuzzle(){
+        List<String> returnList = new ArrayList<>();
+        //Get data from the Database.
+        String queryString = "SELECT COLUMN_PUZZLE, COUNT(1) AS TIMES FROM RECORDS_TABLE GROUP BY COLUMN_PUZZLE ORDER BY TIMES DESC LIMIT 1";
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(queryString, null);
+        //If first element was found, meaning there were results...
+        if(cursor.moveToFirst()){
+            //loop through cursor (result set) and create new customer objects, put them in returnList
+            do{
+                String puzzle = cursor.getString(0);
+                String times = cursor.getString(1);
+
+                returnList.add(puzzle);
+                returnList.add(times);
+            }while(cursor.moveToNext());
+        }
+        //close both cursor and connection
+        cursor.close();
+        db.close();
+        return returnList;
+    }
 }

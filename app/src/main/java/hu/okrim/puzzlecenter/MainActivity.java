@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     Button buttonNCubes;
     Button buttonWCAPuzzles;
     Button buttonNonWCAPuzzles;
+    Button buttonStatistics;
     @SuppressLint("UseSwitchCompatOrMaterialCode")
     Switch switchOnlyAlgs;
 
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         buttonNCubes = findViewById(R.id.buttonNCubes);
         buttonWCAPuzzles = findViewById(R.id.buttonWCAPuzzles);
         buttonNonWCAPuzzles = findViewById(R.id.buttonNonWCAPuzzles);
+        buttonStatistics = findViewById(R.id.buttonStatistics);
         switchOnlyAlgs = findViewById(R.id.switchOnlyAlgs);
     }
 
@@ -51,6 +53,9 @@ public class MainActivity extends AppCompatActivity {
         }
         else if(source == buttonNonWCAPuzzles){
             classToLoad = NonWCAMenuActivity.class;
+        }
+        else if(source == buttonStatistics){
+            classToLoad = Statistics.class;
         }
 
         //Defining which class to load in the new intent

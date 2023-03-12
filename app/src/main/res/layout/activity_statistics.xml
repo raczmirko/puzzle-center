@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Statistics">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:text="@string/statistics"
+                android:textAlignment="center"
+                android:textSize="48sp" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_totalSolves"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="15dp"
+                app:cardBackgroundColor="@android:color/holo_green_dark"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="15dp">
+
+                    <ImageView
+                        android:id="@+id/imageView1"
+                        android:layout_width="60dp"
+                        android:layout_height="60sp"
+                        android:contentDescription="@string/todo"
+                        app:srcCompat="@drawable/_x3" />
+
+                    <TextView
+                        android:id="@+id/tv_totalSolvesPrompt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="@string/total_solves"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:id="@+id/tv_totalSolves"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/textview"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="34sp" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_favouritePuzzle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                app:cardBackgroundColor="@android:color/holo_green_dark"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="15dp">
+
+                    <ImageView
+                        android:id="@+id/iv_favouritePuzzle"
+                        android:layout_width="60sp"
+                        android:layout_height="60sp"
+                        android:contentDescription="@string/todo"
+                        app:srcCompat="@drawable/_x3" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_favouritePuzzlePrompt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:fontFamily="sans-serif-medium"
+                            android:text="@string/favourite_puzzle"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="24sp" />
+
+                        <TextView
+                            android:id="@+id/tv_favouritePuzzle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/textview"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="24sp" />
+
+                        <TextView
+                            android:id="@+id/tv_totalSolvesForFavouritePuzzle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/textview"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_firstSolve"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                app:cardBackgroundColor="@android:color/holo_green_dark"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="15dp">
+
+                    <ImageView
+                        android:id="@+id/iv_firstSolve"
+                        android:layout_width="60sp"
+                        android:layout_height="60sp"
+                        android:contentDescription="@string/todo"
+                        app:srcCompat="@drawable/_x3" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_firstSolvePrompt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:fontFamily="sans-serif-medium"
+                            android:text="@string/first_solve"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="24sp" />
+
+                        <TextView
+                            android:id="@+id/tv_firstSolvePuzzle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/textview"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="24sp" />
+
+                        <TextView
+                            android:id="@+id/tv_firstSolveDate"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/textview"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -41,7 +41,7 @@ public class TimerActivity extends AppCompatActivity{
     TextView textViewPuzzleType;
     Thread timer;
     @SuppressLint("SimpleDateFormat")
-    SimpleDateFormat SDF = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+    SimpleDateFormat SDF = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     @SuppressLint("SimpleDateFormat")
     SimpleDateFormat listTimeFormat = new SimpleDateFormat("HH:mm:ss");
     DatabaseController databaseController = new DatabaseController(TimerActivity.this);

@@ -91,7 +91,7 @@
                 <Button
                     android:id="@+id/buttonTimer"
                     android:layout_width="match_parent"
-                    android:layout_height="80sp"
+                    android:layout_height="60dp"
                     android:backgroundTint="@android:color/holo_green_dark"
                     android:onClick="loadSelectedPage"
                     android:text="@string/solve_timer"
@@ -100,11 +100,20 @@
                 <Button
                     android:id="@+id/buttonRecords"
                     android:layout_width="match_parent"
-                    android:layout_height="80sp"
+                    android:layout_height="60dp"
                     android:backgroundTint="@android:color/holo_red_dark"
                     android:onClick="loadSelectedPage"
                     android:text="@string/records"
                     android:textColor="@color/white" />
+
+                <Button
+                    android:id="@+id/buttonStatistics"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:backgroundTint="@android:color/holo_green_dark"
+                    android:onClick="loadSelectedPage"
+                    android:text="@string/statistics"
+                    tools:ignore="TextContrastCheck" />
 
                 <Space
                     android:layout_width="match_parent"
