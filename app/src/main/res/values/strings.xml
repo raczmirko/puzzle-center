@@ -129,12 +129,22 @@
     <string name="stop_timer">Stop Timer!</string>
     <string name="statistics">Statistics</string>
     <string name="total_solves">Total\nSolves:</string>
-    <string name="favourite_puzzle">Favourite Puzzle:</string>
+    <string name="most_trained_puzzle">Most Trained:</string>
     <string name="textview">TextView</string>
     <string name="first_solve">First solve:</string>
     <string name="total_solves_default">Total solves: -</string>
     <string name="none_yet">None yet :)</string>
     <string name="dash">-</string>
+    <string name="days_of_use">You opened the app…</string>
+    <string name="general_statistics">- General statistics -</string>
+    <string name="specific_statistics">- Specific statistics -</string>
+    <string name="personal_best_pb">PB:</string>
+    <string name="avg_of_last_3_solves">Ao5:</string>
+    <string name="avg_of_last_10_solves">Ao12:</string>
+    <string name="statistics_infos_details">PB - Personal Best is the best recorded time for the appropriate puzzle.\n\nAo5 (Average Of Last 5 Solves) is a commonly used term in cubing, where the average is calculated from the last 5 solves disregarding the best and worst times (since those might have been lucky/unlucky), so it is the average of 3 solves.\n\nAo12 (Average Of Last 12 Solves) is a commonly used term in cubing, where the average is calculated from the last 12 solves disregarding the best and worst times (since those might have been lucky/unlucky), so it is the average of 10 solves.\n\nEarliest and most recent Ao5 difference means the difference in time (improvement) between the Ao5 calculated from the first 5 solves of the particular puzzle, and the most recent 5 solves.</string>
+    <string name="about_the_statistics">About the statistics</string>
+    <string name="number_of_solves">Number of solves:</string>
+    <string name="average_diff">Earliest and most recent Ao5 difference (positive is improvement):</string>
     <string-array name="spinnerPuzzleType">
         <item>2x2x2</item>
         <item>3x3x3</item>
