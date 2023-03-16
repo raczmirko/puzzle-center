@@ -3,7 +3,8 @@
     android:id="@+id/listTextView"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:textColor="@color/black"
+    android:textColor="@color/white"
     android:textStyle="bold"
+    android:textAlignment="center"
     android:background="#ff8800"
     android:textSize="20sp" />

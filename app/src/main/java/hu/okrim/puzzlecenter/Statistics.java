@@ -135,6 +135,12 @@ public class Statistics extends AppCompatActivity {
     }
 
     public void loadSpecificStatistics(String puzzle){
+        //Setting defaults
+        tv_pb.setText(R.string.dash);
+        tv_totalSolveOfSelected.setText(R.string.dash);
+        tv_ao5.setText(R.string.dash);
+        tv_ao12.setText(R.string.dash);
+        tv_ao5diff.setText(R.string.dash);
         List<String> statisticsList = databaseController.getStatistics(puzzle);
         if(!statisticsList.isEmpty()){
             //Setting pb

@@ -42,6 +42,4 @@ public abstract class TimeFormatController {
 
         return stringBuilder.toString();
     }
-
-
 }

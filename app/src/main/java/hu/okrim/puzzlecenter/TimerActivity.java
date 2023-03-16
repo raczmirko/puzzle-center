@@ -21,13 +21,16 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class TimerActivity extends AppCompatActivity{
 
     static boolean timerIsRunning = false;
-    static int currentMillis = 0;
+    static int totalMillis = 0;
     String currentPuzzle = null;
     int currentPuzzleID = 0;
+    int orientation;
 
     ArrayAdapter<CharSequence> spinnerAdapter;
     ArrayAdapter<String> listAdapter;
@@ -38,7 +41,10 @@ public class TimerActivity extends AppCompatActivity{
     ListView listOfTimes;
     Spinner puzzleTypeSpinner;
     TextView textViewTime;
-    TextView textViewPuzzleType;
+    TextView tv_pb;
+    TextView tv_ao5;
+    TextView tv_ao12;
+
     Thread timer;
     @SuppressLint("SimpleDateFormat")
     SimpleDateFormat SDF = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -61,9 +67,12 @@ public class TimerActivity extends AppCompatActivity{
         linearLayout = findViewById(R.id.linearLayoutScreen);
         listOfTimes = findViewById(R.id.listViewTimes);
         textViewTime = findViewById(R.id.textViewTime);
-        textViewPuzzleType = findViewById(R.id.textViewPuzzleType);
+        tv_pb = findViewById(R.id.tv_t_pb);
+        tv_ao5 = findViewById(R.id.tv_t_ao5);
+        tv_ao12 = findViewById(R.id.tv_t_ao12);
+        orientation = getResources().getConfiguration().orientation;
 
-        int orientation = getResources().getConfiguration().orientation;
+        //int orientation = getResources().getConfiguration().orientation;
         if (orientation == Configuration.ORIENTATION_PORTRAIT) {
             // In portrait mode only
             listAdapter = new ArrayAdapter<>(this,R.layout.custom_list_layout);
@@ -80,6 +89,9 @@ public class TimerActivity extends AppCompatActivity{
                     currentPuzzleID = position;
                     ((TextView) parent.getChildAt(0)).setTextColor(Color.WHITE);
                     ((TextView) parent.getChildAt(0)).setTextSize(30);
+                    if (orientation == Configuration.ORIENTATION_PORTRAIT) {
+                        loadStats(currentPuzzle);
+                    }
                 }
             }
             @Override
@@ -93,6 +105,7 @@ public class TimerActivity extends AppCompatActivity{
     public void onConfigurationChanged(@NonNull Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         setContentView(R.layout.activity_timer);
+        orientation = getResources().getConfiguration().orientation;
         initUI();
     }
 
@@ -109,6 +122,36 @@ public class TimerActivity extends AppCompatActivity{
         //Setting the spinner to the correct puzzle
         //spinnerAdapter.setDropDownViewResource(spinnerAdapter.getPosition(currentPuzzle));
         puzzleTypeSpinner.setSelection(spinnerAdapter.getPosition(currentPuzzle));
+    }
+
+    private void loadStats(String puzzle){
+        List<String> statisticsList = databaseController.getStatistics(puzzle);
+        //Setting defaults so that if selected puzzle doesn't have stats
+        //the previous puzzles stats don't remain
+        tv_pb.setText(R.string.dash);
+        tv_ao5.setText(R.string.dash);
+        tv_ao12.setText(R.string.dash);
+        if(!statisticsList.isEmpty()){
+            //Setting pb
+            if(!(statisticsList.get(0) == null)){
+                String pbText = TimeFormatController.createTimeText(Integer.parseInt(statisticsList.get(0)));
+                tv_pb.setText(pbText);
+            }
+            //Setting ao5
+            if(!(statisticsList.get(2) == null)){
+                String ao5String = statisticsList.get(2);
+                int ao5Int = Integer.parseInt(ao5String);
+                String ao5StringFormatted = TimeFormatController.createTimeText(ao5Int);
+                tv_ao5.setText(ao5StringFormatted);
+            }
+            //Setting ao12
+            if(!(statisticsList.get(3) == null)){
+                String ao12String = statisticsList.get(3);
+                int ao12Int = Integer.parseInt(ao12String);
+                String ao12StringFormatted = TimeFormatController.createTimeText(ao12Int);
+                tv_ao12.setText(ao12StringFormatted);
+            }
+        }
     }
 
     @Override
@@ -130,33 +173,31 @@ public class TimerActivity extends AppCompatActivity{
 
     public void startTimerThread(){
         timerIsRunning = true;
-        currentMillis = 0;
-
+        totalMillis = 0;
+        long startTime = System.currentTimeMillis();
         //Creating timer thread
         timer = new Thread(){
             @Override
             public void run() {
-                try {
-                    while(timerIsRunning){
-                        Thread.sleep(10);
-                        //Checking if Thread is still running because if we stopped the app
-                        //whilst loop was running we don't want to increment timer
-                        currentMillis += 10;
-                        if(timerIsRunning){
-                            String timeText = TimeFormatController.createTimeText(currentMillis);
-                            runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    // Updating timer text on UI thread
-                                    if(timerIsRunning) {
-                                        textViewTime.setText(timeText);
-                                    }
-                                }
-                            });
-                        }
+                while(timerIsRunning){
+                    try {
+                        TimeUnit.MILLISECONDS.sleep(10);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
                     }
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    //Another if to only adjust time on screen if during the 10ms sleep time
+                    //the timer was not stopped. Otherwise stop incrementing the time.
+                    if(timerIsRunning){
+                        //Casting to int as the maximum time the app can track is 5_999_000 millis
+                        //Which is 99 minutes 59 seconds
+                        //Since the time format is 00:00.00 (it's not really useful to track more...)
+                        //An int can store values up to 2 billion so maximum 6 million fits
+                        totalMillis = (int) (System.currentTimeMillis() - startTime);
+                        runOnUiThread(() -> {
+                            // Updating timer text on UI thread
+                            textViewTime.setText(TimeFormatController.createTimeText(totalMillis));
+                        });
+                    }
                 }
             }
         };
@@ -165,10 +206,13 @@ public class TimerActivity extends AppCompatActivity{
         }
     }
 
-    public void solveTimerPressed(android.view.View source){
+    public void solveTimerPressed(View source){
         if(timerIsRunning){
             endTimer();
-            addTimeToList();
+            if (orientation == Configuration.ORIENTATION_PORTRAIT) {
+                addTimeToList();
+                loadStats(currentPuzzle);
+            }
             puzzleTypeSpinner.setEnabled(true);
             buttonStartTimer.setBackgroundColor(Color.parseColor("#ff669900"));
             buttonStartTimer.setText(R.string.start_timer);
@@ -200,14 +244,12 @@ public class TimerActivity extends AppCompatActivity{
         timerIsRunning = false;
         String date = SDF.format(new Date());
         String puzzle = puzzleTypeSpinner.getSelectedItem().toString().toLowerCase();
-        databaseController.addRecord(new DataEntryModel(date, puzzle, currentMillis));
+        databaseController.addRecord(new DataEntryModel(date, puzzle, totalMillis));
     }
 
     public void addTimeToList(){
-        int orientation = getResources().getConfiguration().orientation;
-        if (orientation == Configuration.ORIENTATION_PORTRAIT) {
-            String messageToInsert = listTimeFormat.format(new Date()) + "  |  " + textViewTime.getText().toString() + "  |  " + puzzleTypeSpinner.getSelectedItem().toString();
-            listAdapter.insert(messageToInsert, 0);
-        }
+        //int orientation = getResources().getConfiguration().orientation;
+        String messageToInsert = listTimeFormat.format(new Date()) + "  |  " + TimeFormatController.createTimeText(totalMillis) + "  |  " + puzzleTypeSpinner.getSelectedItem().toString();
+        listAdapter.insert(messageToInsert, 0);
     }
 }

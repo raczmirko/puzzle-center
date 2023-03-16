@@ -6,142 +6,144 @@
     android:layout_height="match_parent"
     tools:context=".RecordsActivity">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/textViewRecordsTitle"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-light"
-            android:text="@string/records"
-            android:textAlignment="center"
-            android:textSize="48sp" />
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:orientation="vertical">
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="20sp" />
+            <TextView
+                android:id="@+id/textViewRecordsTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:text="@string/records"
+                android:textAlignment="center"
+                android:textSize="48sp" />
 
-        <TextView
-            android:id="@+id/textViewRecords1stPrompt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-light"
-            android:text="@string/_1st"
-            android:textAlignment="center"
-            android:textSize="20sp"
-            android:textStyle="bold|italic" />
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20sp" />
 
-        <TextView
-            android:id="@+id/textViewRecords1stValue"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-medium"
-            android:textAlignment="center"
-            android:textSize="34sp" />
+            <TextView
+                android:id="@+id/textViewRecords1stPrompt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:text="@string/_1st"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:textStyle="bold|italic" />
 
-        <TextView
-            android:id="@+id/textViewRecords1stDate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-light"
-            android:textAlignment="center"
-            android:textSize="20sp" />
+            <TextView
+                android:id="@+id/textViewRecords1stValue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:textAlignment="center"
+                android:textSize="34sp" />
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="11sp" />
+            <TextView
+                android:id="@+id/textViewRecords1stDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:textAlignment="center"
+                android:textSize="20sp" />
 
-        <TextView
-            android:id="@+id/textViewRecords2ndPrompt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-light"
-            android:text="@string/_2nd"
-            android:textAlignment="center"
-            android:textSize="20sp"
-            android:textStyle="bold|italic" />
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="11sp" />
 
-        <TextView
-            android:id="@+id/textViewRecords2ndValue"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-medium"
-            android:textAlignment="center"
-            android:textSize="34sp" />
+            <TextView
+                android:id="@+id/textViewRecords2ndPrompt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:text="@string/_2nd"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:textStyle="bold|italic" />
 
-        <TextView
-            android:id="@+id/textViewRecords2ndDate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-light"
-            android:textAlignment="center"
-            android:textSize="20sp" />
+            <TextView
+                android:id="@+id/textViewRecords2ndValue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:textAlignment="center"
+                android:textSize="34sp" />
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="11sp" />
+            <TextView
+                android:id="@+id/textViewRecords2ndDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:textAlignment="center"
+                android:textSize="20sp" />
 
-        <TextView
-            android:id="@+id/textViewRecords3rdPrompt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-light"
-            android:text="@string/_3rd"
-            android:textAlignment="center"
-            android:textSize="20sp"
-            android:textStyle="bold|italic" />
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="11sp" />
 
-        <TextView
-            android:id="@+id/textViewRecords3rdValue"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-medium"
-            android:textAlignment="center"
-            android:textSize="34sp" />
+            <TextView
+                android:id="@+id/textViewRecords3rdPrompt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:text="@string/_3rd"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:textStyle="bold|italic" />
 
-        <TextView
-            android:id="@+id/textViewRecords3rdDate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-light"
-            android:textAlignment="center"
-            android:textSize="20sp" />
+            <TextView
+                android:id="@+id/textViewRecords3rdValue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:textAlignment="center"
+                android:textSize="34sp" />
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="11sp" />
+            <TextView
+                android:id="@+id/textViewRecords3rdDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:textAlignment="center"
+                android:textSize="20sp" />
 
-        <TextView
-            android:id="@+id/textViewRecordsTitle2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-light"
-            android:text="@string/category"
-            android:textAlignment="center"
-            android:textSize="34sp" />
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="11sp" />
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="11sp" />
+            <TextView
+                android:id="@+id/textViewRecordsTitle2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:text="@string/category"
+                android:textAlignment="center"
+                android:textSize="34sp" />
 
-        <Spinner
-            android:id="@+id/spinnerRecord"
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:background="@android:color/holo_orange_dark"
-            android:popupBackground="@android:color/holo_orange_dark"
-            android:textAlignment="center"
-            tools:ignore="SpeakableTextPresentCheck" />
-    </LinearLayout>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="11sp" />
+
+            <Spinner
+                android:id="@+id/spinnerRecord"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:background="@android:color/holo_orange_dark"
+                android:popupBackground="@android:color/holo_orange_dark"
+                android:textAlignment="center"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </LinearLayout>
+    </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
