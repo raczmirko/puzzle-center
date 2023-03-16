@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -27,10 +28,12 @@ import java.util.concurrent.TimeUnit;
 public class TimerActivity extends AppCompatActivity{
 
     static boolean timerIsRunning = false;
+    static boolean inspectionIsRunning = false;
     static int totalMillis = 0;
     String currentPuzzle = null;
     int currentPuzzleID = 0;
     int orientation;
+    CountDownTimer inspectionTimer;
 
     ArrayAdapter<CharSequence> spinnerAdapter;
     ArrayAdapter<String> listAdapter;
@@ -98,6 +101,18 @@ public class TimerActivity extends AppCompatActivity{
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
+
+        buttonStartTimer.setOnClickListener(this::solveTimerPressed);
+
+        buttonStartTimer.setOnLongClickListener(v -> {
+            // TODO Auto-generated method stub
+            if(!timerIsRunning && !inspectionIsRunning){
+                inspectionIsRunning = true;
+                startInspectionTimer(v);
+            }
+            return true;
+        });
+
         loadLastSelectedPuzzleToSpinner();
     }
 
@@ -206,7 +221,27 @@ public class TimerActivity extends AppCompatActivity{
         }
     }
 
+    public void startInspectionTimer(View source){
+        buttonStartTimer.setBackgroundColor(Color.YELLOW);
+        buttonStartTimer.setTextColor(Color.BLACK);
+        buttonStartTimer.setText(R.string.inspection);
+        inspectionTimer = new CountDownTimer(15000, 1000) {
+            int remainingTime = 15;
+            @Override
+            public void onTick(long l) {
+                textViewTime.setText(String.valueOf(remainingTime));
+                remainingTime -= 1;
+            }
+
+            @Override
+            public void onFinish() {
+                solveTimerPressed(source);
+            }
+        }.start();
+    }
+
     public void solveTimerPressed(View source){
+        inspectionIsRunning = false;
         if(timerIsRunning){
             endTimer();
             if (orientation == Configuration.ORIENTATION_PORTRAIT) {
@@ -216,12 +251,18 @@ public class TimerActivity extends AppCompatActivity{
             puzzleTypeSpinner.setEnabled(true);
             buttonStartTimer.setBackgroundColor(Color.parseColor("#ff669900"));
             buttonStartTimer.setText(R.string.start_timer);
+            buttonStartTimer.setTextColor(Color.WHITE);
             buttonCancelTimer.setVisibility(View.GONE);
         }else{
+            //Can only cancel inspection timer if it is running
+            if(inspectionIsRunning){
+                inspectionTimer.cancel();
+            }
             startTimerThread();
             puzzleTypeSpinner.setEnabled(false);
             buttonStartTimer.setBackgroundColor(Color.RED);
             buttonStartTimer.setText(R.string.stop_timer);
+            buttonStartTimer.setTextColor(Color.WHITE);
             buttonCancelTimer.setVisibility(View.VISIBLE);
         }
     }

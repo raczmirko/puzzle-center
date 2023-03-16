@@ -139,7 +139,6 @@
             android:layout_height="150sp"
             android:backgroundTint="@android:color/holo_green_dark"
             android:fontFamily="sans-serif-medium"
-            android:onClick="solveTimerPressed"
             android:text="@string/start_timer"
             android:textColor="@color/white"
             android:textSize="20sp" />
