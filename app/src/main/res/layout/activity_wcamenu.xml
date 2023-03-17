@@ -39,27 +39,26 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="center"
                 android:orientation="horizontal"
                 android:textAlignment="center">
 
                 <ImageView
                     android:id="@+id/imageViewSkewb"
-                    android:layout_width="0dp"
-                    android:layout_height="100sp"
-                    android:layout_weight="1"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginEnd="15dp"
                     android:contentDescription="@string/todo"
                     app:srcCompat="@drawable/skewb" />
 
                 <Button
                     android:id="@+id/buttonSkewb"
-                    android:layout_width="160sp"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:backgroundTint="#35aa12"
-                    android:fontFamily="sans-serif-light"
+                    android:fontFamily="sans-serif-medium"
                     android:onClick="loadNewIntent"
                     android:text="@string/skewb"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textSize="20sp"
                     tools:ignore="TextContrastCheck" />
             </LinearLayout>
@@ -72,30 +71,29 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
                 android:orientation="horizontal"
                 android:textAlignment="center">
 
+                <ImageView
+                    android:id="@+id/imageViewSquareOne"
+                    android:layout_width="100dp"
+                    android:layout_height="100sp"
+                    android:layout_marginEnd="15dp"
+                    android:contentDescription="@string/todo"
+                    app:srcCompat="@drawable/square1" />
+
                 <Button
                     android:id="@+id/buttonSquareOne"
-                    android:layout_width="160sp"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:backgroundTint="#ff9400"
                     android:enabled="false"
-                    android:fontFamily="sans-serif-light"
+                    android:fontFamily="sans-serif-medium"
                     android:onClick="loadNewIntent"
                     android:text="@string/square_1"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textSize="20sp" />
 
-                <ImageView
-                    android:id="@+id/imageViewSquareOne"
-                    android:layout_width="0dp"
-                    android:layout_height="100sp"
-                    android:layout_weight="1"
-                    android:contentDescription="@string/todo"
-                    app:srcCompat="@drawable/square1" />
             </LinearLayout>
 
             <Space
@@ -106,25 +104,23 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
                 android:orientation="horizontal"
                 android:textAlignment="center">
 
                 <ImageView
                     android:id="@+id/imageViewPyraminx"
-                    android:layout_width="0dp"
+                    android:layout_width="100dp"
                     android:layout_height="100sp"
-                    android:layout_weight="1"
+                    android:layout_marginEnd="15dp"
                     android:contentDescription="@string/todo"
                     app:srcCompat="@drawable/pyraminx" />
 
                 <Button
                     android:id="@+id/buttonPyraminx"
-                    android:layout_width="160sp"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:backgroundTint="#ffec04"
-                    android:fontFamily="sans-serif-light"
+                    android:fontFamily="sans-serif-medium"
                     android:onClick="loadNewIntent"
                     android:text="@string/pyraminx"
                     android:textColor="@color/black"
@@ -140,30 +136,29 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
                 android:orientation="horizontal"
                 android:textAlignment="center">
 
+                <ImageView
+                    android:id="@+id/imageViewMegaminx"
+                    android:layout_width="100dp"
+                    android:layout_height="100sp"
+                    android:layout_marginEnd="15dp"
+                    android:contentDescription="@string/todo"
+                    app:srcCompat="@drawable/megaminx" />
+
                 <Button
                     android:id="@+id/buttonMegaminx"
-                    android:layout_width="160sp"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:backgroundTint="#d40b0b"
                     android:enabled="false"
-                    android:fontFamily="sans-serif-light"
+                    android:fontFamily="sans-serif-medium"
                     android:onClick="loadNewIntent"
                     android:text="@string/megaminx"
                     android:textColor="@color/white"
                     android:textSize="20sp" />
 
-                <ImageView
-                    android:id="@+id/imageViewMegaminx"
-                    android:layout_width="0dp"
-                    android:layout_height="100sp"
-                    android:layout_weight="1"
-                    android:contentDescription="@string/todo"
-                    app:srcCompat="@drawable/megaminx" />
             </LinearLayout>
 
             <Space
@@ -174,26 +169,24 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
                 android:orientation="horizontal"
                 android:textAlignment="center">
 
                 <ImageView
                     android:id="@+id/imageViewClock"
-                    android:layout_width="0dp"
+                    android:layout_width="100dp"
                     android:layout_height="100sp"
-                    android:layout_weight="1"
+                    android:layout_marginEnd="15dp"
                     android:contentDescription="@string/todo"
                     app:srcCompat="@drawable/clock" />
 
                 <Button
                     android:id="@+id/buttonClock"
-                    android:layout_width="160sp"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:backgroundTint="#1e0eed"
                     android:enabled="false"
-                    android:fontFamily="sans-serif-light"
+                    android:fontFamily="sans-serif-medium"
                     android:onClick="loadNewIntent"
                     android:text="@string/magic_clock"
                     android:textColor="@color/white"

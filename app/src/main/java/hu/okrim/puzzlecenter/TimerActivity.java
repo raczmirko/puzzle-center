@@ -242,6 +242,10 @@ public class TimerActivity extends AppCompatActivity{
 
     public void solveTimerPressed(View source){
         inspectionIsRunning = false;
+        //Can only cancel inspection timer if it is running
+        if(inspectionTimer != null){
+            inspectionTimer.cancel();
+        }
         if(timerIsRunning){
             endTimer();
             if (orientation == Configuration.ORIENTATION_PORTRAIT) {
@@ -254,10 +258,6 @@ public class TimerActivity extends AppCompatActivity{
             buttonStartTimer.setTextColor(Color.WHITE);
             buttonCancelTimer.setVisibility(View.GONE);
         }else{
-            //Can only cancel inspection timer if it is running
-            if(inspectionIsRunning){
-                inspectionTimer.cancel();
-            }
             startTimerThread();
             puzzleTypeSpinner.setEnabled(false);
             buttonStartTimer.setBackgroundColor(Color.RED);

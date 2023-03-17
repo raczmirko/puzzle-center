@@ -41,25 +41,25 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
+                <ImageView
+                    android:id="@+id/imageViewVoid"
+                    android:layout_width="100dp"
+                    android:layout_height="100sp"
+                    android:layout_marginEnd="15dp"
+                    android:contentDescription="@string/todo"
+                    app:srcCompat="@drawable/resource_void" />
+
                 <Button
                     android:id="@+id/buttonVoid"
-                    android:layout_width="160sp"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:backgroundTint="#35aa12"
                     android:enabled="false"
-                    android:fontFamily="sans-serif-light"
+                    android:fontFamily="sans-serif-medium"
                     android:onClick="loadNewIntent"
                     android:text="@string/void_cube"
                     android:textColor="@color/white"
                     android:textSize="20sp" />
-
-                <ImageView
-                    android:id="@+id/imageViewVoid"
-                    android:layout_width="0dp"
-                    android:layout_height="100sp"
-                    android:layout_weight="1"
-                    android:contentDescription="@string/todo"
-                    app:srcCompat="@drawable/resource_void" />
             </LinearLayout>
 
             <Space
@@ -74,19 +74,19 @@
 
                 <ImageView
                     android:id="@+id/imageViewSuperIvy"
-                    android:layout_width="0dp"
+                    android:layout_width="100dp"
                     android:layout_height="100sp"
-                    android:layout_weight="1"
+                    android:layout_marginEnd="15dp"
                     android:contentDescription="@string/todo"
                     app:srcCompat="@drawable/superivy" />
 
                 <Button
                     android:id="@+id/buttonSuperIvy"
-                    android:layout_width="160sp"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:backgroundTint="#ff9400"
                     android:enabled="false"
-                    android:fontFamily="sans-serif-light"
+                    android:fontFamily="sans-serif-medium"
                     android:onClick="loadNewIntent"
                     android:text="@string/super_ivy_cube"
                     android:textColor="@color/white"
@@ -104,25 +104,25 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
+                <ImageView
+                    android:id="@+id/imageViewPentacle"
+                    android:layout_width="100dp"
+                    android:layout_height="100sp"
+                    android:layout_marginEnd="15dp"
+                    android:contentDescription="@string/todo"
+                    app:srcCompat="@drawable/pentacle" />
+
                 <Button
                     android:id="@+id/buttonPentacle"
-                    android:layout_width="160sp"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:backgroundTint="#ffec04"
                     android:enabled="false"
-                    android:fontFamily="sans-serif-light"
+                    android:fontFamily="sans-serif-medium"
                     android:onClick="loadNewIntent"
                     android:text="@string/pentacle_cube"
                     android:textColor="@color/black"
                     android:textSize="20sp" />
-
-                <ImageView
-                    android:id="@+id/imageViewPentacle"
-                    android:layout_width="0dp"
-                    android:layout_height="100sp"
-                    android:layout_weight="1"
-                    android:contentDescription="@string/todo"
-                    app:srcCompat="@drawable/pentacle" />
             </LinearLayout>
 
             <Space
@@ -137,19 +137,19 @@
 
                 <ImageView
                     android:id="@+id/imageView2x2Pyraminx"
-                    android:layout_width="0dp"
+                    android:layout_width="100dp"
                     android:layout_height="100sp"
-                    android:layout_weight="1"
+                    android:layout_marginEnd="15dp"
                     android:contentDescription="@string/todo"
                     app:srcCompat="@drawable/_x2pyraminx" />
 
                 <Button
                     android:id="@+id/button2x2Pyraminx"
-                    android:layout_width="160sp"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:backgroundTint="#35aa12"
                     android:enabled="false"
-                    android:fontFamily="sans-serif-light"
+                    android:fontFamily="sans-serif-medium"
                     android:onClick="loadNewIntent"
                     android:text="@string/_2x2_pyraminx"
                     android:textColor="@color/white"
@@ -166,26 +166,26 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
+                <ImageView
+                    android:id="@+id/imageView2x2x4"
+                    android:layout_width="100dp"
+                    android:layout_height="100sp"
+                    android:layout_marginEnd="15dp"
+                    android:contentDescription="@string/todo"
+                    android:rotation="90"
+                    app:srcCompat="@drawable/_x2x4" />
+
                 <Button
                     android:id="@+id/button2x2x4"
-                    android:layout_width="160sp"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:backgroundTint="#d40b0b"
                     android:enabled="false"
-                    android:fontFamily="sans-serif-light"
+                    android:fontFamily="sans-serif-medium"
                     android:onClick="loadNewIntent"
                     android:text="@string/_2x2x4"
                     android:textColor="@color/white"
                     android:textSize="20sp" />
-
-                <ImageView
-                    android:id="@+id/imageView2x2x4"
-                    android:layout_width="0dp"
-                    android:layout_height="100sp"
-                    android:layout_weight="1"
-                    android:contentDescription="@string/todo"
-                    android:rotation="90"
-                    app:srcCompat="@drawable/_x2x4" />
             </LinearLayout>
 
             <Space
@@ -200,19 +200,19 @@
 
                 <ImageView
                     android:id="@+id/imageViewMasterPyraminx"
-                    android:layout_width="0dp"
+                    android:layout_width="100dp"
                     android:layout_height="100sp"
-                    android:layout_weight="1"
+                    android:layout_marginEnd="15dp"
                     android:contentDescription="@string/todo"
                     app:srcCompat="@drawable/masterpyraminx" />
 
                 <Button
                     android:id="@+id/buttonMasterPyraminx"
-                    android:layout_width="160sp"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:backgroundTint="#1e0eed"
                     android:enabled="false"
-                    android:fontFamily="sans-serif-light"
+                    android:fontFamily="sans-serif-medium"
                     android:onClick="loadNewIntent"
                     android:text="@string/master_pyraminx"
                     android:textColor="@color/white"
